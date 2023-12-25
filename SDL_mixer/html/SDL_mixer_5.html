@@ -1,0 +1,89 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Conflicts</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Conflicts">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Conflicts">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC5"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_4.html#SEC4"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1> 3. Conflicts </H1>
+<!--docid::SEC5::-->
+<P>
+
+When using SDL_mixer functions you need to avoid the following functions from SDL:
+</P><P>
+
+<DL COMPACT>
+<DT><CODE>SDL_OpenAudio</CODE>
+<DD>Use <CODE>Mix_OpenAudio</CODE> instead.
+<DT><CODE>SDL_CloseAudio</CODE>
+<DD>Use <CODE>Mix_CloseAudio</CODE> instead.
+<DT><CODE>SDL_PauseAudio</CODE>
+<DD>Use <CODE>Mix_Pause(-1)</CODE> and <CODE>Mix_PauseMusic</CODE> instead, to pause.<BR>
+Use <CODE>Mix_Resume(-1)</CODE> and <CODE>Mix_ResumeMusic</CODE> instead, to unpause.
+<DT><CODE>SDL_LockAudio</CODE>
+<DD>This is just not needed since SDL_mixer handles this for you.<BR>
+Using it may cause problems as well.
+<DT><CODE>SDL_UnlockAudio</CODE>
+<DD>This is just not needed since SDL_mixer handles this for you.<BR>
+Using it may cause problems as well.
+</DL>
+<P>
+
+You may call the following functions freely:
+</P><P>
+
+<DL COMPACT>
+<DT><CODE>SDL_AudioDriverName</CODE>
+<DD>This will still work as usual.
+<DT><CODE>SDL_GetAudioStatus</CODE>
+<DD>This will still work, though it will likely return <B>SDL_AUDIO_PLAYING</B>
+even though SDL_mixer is just playing silence.
+</DL>
+<P>
+
+It is also a BAD idea to call SDL_mixer and SDL audio functions from a callback.
+Callbacks include Effects functions and other SDL_mixer audio hooks.
+</P><P>
+
+<A NAME="Functions"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

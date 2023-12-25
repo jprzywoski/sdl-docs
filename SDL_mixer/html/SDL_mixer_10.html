@@ -1,0 +1,75 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_Quit</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_Quit">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_Quit">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC10"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_9.html#SEC9"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_11.html#SEC11"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_11.html#SEC11"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_7.html#SEC7"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_16.html#SEC16"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.1.3 Mix_Quit </H3>
+<!--docid::SEC10::-->
+<P>
+
+<CODE>void <B>Mix_Quit</B>()</CODE>
+</P><P>
+
+This function cleans up all dynamically loaded library handles, freeing memory.  If support is required again it will be initialized again, either by <CODE>Mix_Init</CODE> or loading a sample or some music with dynamic support required.  You may call this function when Mix_Load functions are no longer needed for the <B>MIX_INIT_</B>* formats.  You should call this function for each time <CODE>Mix_Init</CODE> was called, otherwise it may not free all the dynamic library resources until the program ends.  This is done so that multiple unrelated modules of a program may call <CODE>Mix_Init</CODE> and <CODE>Mix_Quit</CODE> without affecting the others performance and needs.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// indicate that we are ready to unload the dynamically loaded libraries
+Mix_Quit();
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>NOTE</B>: Since each call to <CODE>Mix_Init</CODE> may set different flags, there is no way, currently, to request how many times each one was initted.  In other words, the only way to quit for sure is to do a loop like so:<BR>
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// force a quit
+while(Mix_Init(0))
+    Mix_Quit();
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_9.html#SEC9">4.1.2 Mix_Init</A>
+</P><P>
+
+<A NAME="Mix_OpenAudio"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

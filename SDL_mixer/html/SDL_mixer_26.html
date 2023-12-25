@@ -1,0 +1,80 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_AllocateChannels</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_AllocateChannels">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_AllocateChannels">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC26"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_25.html#SEC25"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_27.html#SEC27"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_25.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.3.1 Mix_AllocateChannels </H3>
+<!--docid::SEC26::-->
+<P>
+
+<CODE>int <B>Mix_AllocateChannels</B>(int <VAR>numchans</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>numchans</VAR>
+<DD>Number of channels to allocate for mixing.<BR>
+A negative number will not do anything, it will tell you how many channels are currently allocated.
+</DL>
+<P>
+
+Set the number of channels being mixed.  This can be called multiple times, even with sounds playing.  If <VAR>numchans</VAR> is less than the current number of channels, then the higher channels will be stopped, freed, and therefore not mixed any longer.  It's probably not a good idea to change the size 1000 times a second though.<BR>
+If any channels are deallocated, any callback set by <CODE>Mix_ChannelFinished</CODE> will be called when each channel is halted to be freed.
+<B>Note</B>: passing in zero WILL free all mixing channels, however music will still play.
+</P><P>
+
+<B>Returns</B>: The number of channels allocated.  Never fails...but a high number of channels can segfault if you run out of memory.  We're talking REALLY high!
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// allocate 16 mixing channels
+Mix_AllocateChannels(16);
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_11.html#SEC11">4.1.4 Mix_OpenAudio</A>
+</P><P>
+
+<A NAME="Mix_Volume"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

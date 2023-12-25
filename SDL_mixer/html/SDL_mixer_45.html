@@ -1,0 +1,86 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_GroupChannels</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_GroupChannels">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_GroupChannels">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC45"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_44.html#SEC44"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_46.html#SEC46"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_46.html#SEC46"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.4.3 Mix_GroupChannels </H3>
+<!--docid::SEC45::-->
+<P>
+
+<CODE>int <B>Mix_GroupChannels</B>(int <VAR>from</VAR>, int <VAR>to</VAR>, int <VAR>tag</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>from</VAR>
+<DD>First Channel number of channels to assign <VAR>tag</VAR> to.  Must be less or equal to <VAR>to</VAR>.
+<DT><VAR>to</VAR>
+<DD>Last Channel number of channels to assign <VAR>tag</VAR> to.  Must be greater or equal to <VAR>from</VAR>.
+<DT><VAR>tag</VAR>
+<DD>A group number.  Any positive numbers (including zero).<BR>
+-1 is the default group.  Use -1 to remove a group tag essentially.
+</DL>
+<P>
+
+Add channels starting at <VAR>from</VAR> up through <VAR>to</VAR> to group <VAR>tag</VAR>,
+or reset it's group to the default group tag (-1).
+</P><P>
+
+<B>Returns</B>: The number of tagged channels on success. If that number is less than <VAR>to</VAR>-<VAR>from</VAR>+1 then some channels were no tagged because they didn't exist.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// add channels 0 through 7 to group 1
+if(Mix_GroupChannels(0,7,1)!=8) {
+    // some bad channels, apparently some channels aren't allocated
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_44.html#SEC44">4.4.2 Mix_GroupChannel</A>,
+<A HREF="SDL_mixer_26.html#SEC26">4.3.1 Mix_AllocateChannels</A>
+</P><P>
+
+<A NAME="Mix_GroupCount"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_ReserveChannels</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_ReserveChannels">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_ReserveChannels">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC43"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_44.html#SEC44"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.4.1 Mix_ReserveChannels </H3>
+<!--docid::SEC43::-->
+<P>
+
+<CODE>int <B>Mix_ReserveChannels</B>(int <VAR>num</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>num</VAR>
+<DD>Number of channels to reserve from default mixing.<BR>
+Zero removes all reservations.
+</DL>
+<P>
+
+Reserve <VAR>num</VAR> channels from being used when playing samples when passing in -1 as a channel number to playback functions.
+The channels are reserved starting from channel 0 to <VAR>num</VAR>-1.
+Passing in zero will unreserve all channels.
+Normally SDL_mixer starts without any channels reserved.
+</P><P>
+
+The following functions are affected by this setting:<BR>
+<A HREF="SDL_mixer_28.html#SEC28">4.3.3 Mix_PlayChannel</A><BR>
+<A HREF="SDL_mixer_29.html#SEC29">4.3.4 Mix_PlayChannelTimed</A><BR>
+<A HREF="SDL_mixer_30.html#SEC30">4.3.5 Mix_FadeInChannel</A><BR>
+<A HREF="SDL_mixer_31.html#SEC31">4.3.6 Mix_FadeInChannelTimed</A><BR>
+</P><P>
+
+<B>Returns</B>: The number of channels reserved.  Never fails, but may return less channels than you ask for, depending on the number of channels previously allocated.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// reserve the first 8 mixing channels
+int reserved_count;
+reserved_count=Mix_ReserveChannels(8);
+if(reserved_count!=8) {
+    printf("reserved %d channels from default mixing.\n",reserved_count);
+    printf("8 channels were not reserved!\n");
+    // this might be a critical error...
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_26.html#SEC26">4.3.1 Mix_AllocateChannels</A>
+</P><P>
+
+<A NAME="Mix_GroupChannel"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

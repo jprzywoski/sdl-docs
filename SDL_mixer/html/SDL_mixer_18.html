@@ -1,0 +1,83 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_GetChunkDecoder</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_GetChunkDecoder">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_GetChunkDecoder">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC18"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_17.html#SEC17"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_19.html#SEC19"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_19.html#SEC19"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_16.html#SEC16"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_25.html#SEC25"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.2.2 Mix_GetChunkDecoder </H3>
+<!--docid::SEC18::-->
+<P>
+
+<CODE>const char *<B>Mix_GetChunkDecoder</B>(int <VAR>index</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>index</VAR>
+<DD>The index number of sample chunk decoder to get.<BR>
+In the range from 0(zero) to Mix_GetNumChunkDecoders()-1, inclusive.
+</DL>
+<P>
+
+Get the name of the <VAR>index</VAR>ed sample chunk decoder.
+You need to get the number of sample chunk decoders available using the <CODE>Mix_GetNumChunkDecoders</CODE> function.
+</P><P>
+
+<B>Returns</B>: The name of the <VAR>index</VAR>ed sample chunk decoder.  This string is owned by the SDL_mixer library, do not modify or free it.  It is valid until you call <CODE>Mix_CloseAudio</CODE> the final time.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// print sample chunk decoders available
+int i,max=Mix_GetNumChunkDecoders();
+for(i=0; i&#60;max; ++i)
+	printf("Sample chunk decoder %d is for %s",Mix_GetChunkDecoder(i));
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_17.html#SEC17">4.2.1 Mix_GetNumChunkDecoders</A>,
+<A HREF="SDL_mixer_54.html#SEC54">4.5.2 Mix_GetMusicDecoder</A>,
+<A HREF="SDL_mixer_19.html#SEC19">4.2.3 Mix_LoadWAV</A>
+</P><P>
+
+<A NAME="Mix_LoadWAV"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,131 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: SDLNet_SocketReady</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: SDLNet_SocketReady">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: SDLNet_SocketReady">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC47"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_46.html#SEC46"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_48.html#SEC48"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_5.html#SEC5"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_41.html#SEC41"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_48.html#SEC48"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.6.6 SDLNet_SocketReady </H3>
+<!--docid::SEC47::-->
+<P>
+
+<CODE>int <B>SDLNet_SocketReady</B>(<VAR>sock</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>sock</VAR>
+<DD>The socket to check for activity.<BR>
+Both UDPsocket and TCPsocket can be used with this function.
+</DL>
+<P>
+
+Check whether a socket has been marked as active.  This function should only be used on a socket in a socket set, and that set has to have had SDLNet_CheckSockets (see section <A HREF="SDL_net_46.html#SEC46">3.6.5 SDLNet_CheckSockets</A>) called upon it.
+</P><P>
+
+<B>Returns</B>: non-zero for activity.  zero is returned for no activity.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// Wait forever for a connection attempt
+//SDLNet_SocketSet set;
+//TCPsocket serversock, client;
+int numready;
+
+numready=SDLNet_CheckSockets(set, 1000);
+if(numready==-1) {
+    printf("SDLNet_CheckSockets: %s\n", SDLNet_GetError());
+    //most of the time this is a system error, where perror might help you.
+    perror("SDLNet_CheckSockets");
+}
+else if(numready) {
+    printf("There are %d sockets with activity!\n",numready);
+    // check all sockets with SDLNet_SocketReady and handle the active ones.
+    if(SDLNet_SocketReady(serversock)) {
+        client=SDLNet_TCP_Accept(serversock);
+        if(client) {
+            // play with the client.
+        }
+    }
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+To just quickly do network handling with no waiting, we do this.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// Check for, and handle UDP data
+//SDLNet_SocketSet set;
+//UDPsocket udpsock;
+//UDPpacket *packet;
+int numready, numpkts;
+
+numready=SDLNet_CheckSockets(set, 0);
+if(numready==-1) {
+    printf("SDLNet_CheckSockets: %s\n", SDLNet_GetError());
+    //most of the time this is a system error, where perror might help you.
+    perror("SDLNet_CheckSockets");
+}
+else if(numready) {
+    printf("There are %d sockets with activity!\n",numready);
+    // check all sockets with SDLNet_SocketReady and handle the active ones.
+    if(SDLNet_SocketReady(udpsock)) {
+        numpkts=SDLNet_UDP_Recv(udpsock,&#38;packet);
+        if(numpkts) {
+            // process the packet.
+        }
+    }
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_46.html#SEC46">3.6.5 SDLNet_CheckSockets</A>,
+<A HREF="SDL_net_44.html#SEC44">3.6.3 SDLNet_AddSocket</A>,
+<A HREF="SDL_net_45.html#SEC45">3.6.4 SDLNet_DelSocket</A>,
+<A HREF="SDL_net_42.html#SEC42">3.6.1 SDLNet_AllocSocketSet</A>,
+<A HREF="SDL_net_53.html#SEC53">4.5 SDLNet_SocketSet</A>,
+<A HREF="SDL_net_51.html#SEC51">4.3 UDPsocket</A>,
+<A HREF="SDL_net_50.html#SEC50">4.2 TCPsocket</A>
+</P><P>
+
+<A NAME="Types"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

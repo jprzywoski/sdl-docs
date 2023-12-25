@@ -1,0 +1,94 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_PlayChannel</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_PlayChannel">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_PlayChannel">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC28"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_27.html#SEC27"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_29.html#SEC29"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_29.html#SEC29"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_25.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.3.3 Mix_PlayChannel </H3>
+<!--docid::SEC28::-->
+<P>
+
+<CODE>int <B>Mix_PlayChannel</B>(int <VAR>channel</VAR>, Mix_Chunk *<VAR>chunk</VAR>, int <VAR>loops</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>channel</VAR>
+<DD>Channel to play on, or -1 for the first free unreserved channel.
+<DT><VAR>chunk</VAR>
+<DD>Sample to play.
+<DT><VAR>loops</VAR>
+<DD>Number of loops, -1 is infinite loops.<BR>
+Passing one here plays the sample twice (1 loop).
+</DL>
+<P>
+
+Play <VAR>chunk</VAR> on <VAR>channel</VAR>, or if <VAR>channel</VAR> is -1, pick the first free unreserved channel.
+The sample will play for <VAR>loops</VAR>+1 number of times, unless stopped by halt, or fade out, or setting a new expiration time of less time than it would have originally taken to play the loops, or closing the mixer.<BR>
+<B>Note</B>: this just calls <CODE>Mix_PlayChannelTimed()</CODE> with <VAR>ticks</VAR> set to -1.
+</P><P>
+
+<B>Returns</B>: the channel the sample is played on.  On any errors, -1 is returned.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// play sample on first free unreserved channel
+// play it exactly once through
+// Mix_Chunk *sample; //previously loaded
+if(Mix_PlayChannel(-1, sample, 0)==-1) {
+    printf("Mix_PlayChannel: %s\n",Mix_GetError());
+    // may be critical error, or maybe just no channels were free.
+    // you could allocated another channel in that case...
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_29.html#SEC29">4.3.4 Mix_PlayChannelTimed</A>,
+<A HREF="SDL_mixer_30.html#SEC30">4.3.5 Mix_FadeInChannel</A>,
+<A HREF="SDL_mixer_34.html#SEC34">4.3.9 Mix_HaltChannel</A>,
+<A HREF="SDL_mixer_35.html#SEC35">4.3.10 Mix_ExpireChannel</A>,
+<A HREF="SDL_mixer_43.html#SEC43">4.4.1 Mix_ReserveChannels</A>
+</P><P>
+
+<A NAME="Mix_PlayChannelTimed"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

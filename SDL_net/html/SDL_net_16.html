@@ -1,0 +1,118 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: SDLNet_ResolveHost</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: SDLNet_ResolveHost">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: SDLNet_ResolveHost">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC16"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_15.html#SEC15"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_17.html#SEC17"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_15.html#SEC15"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.2.1 SDLNet_ResolveHost </H3>
+<!--docid::SEC16::-->
+<P>
+
+<CODE>int <B>SDLNet_ResolveHost</B>(IPaddress *<VAR>address</VAR>,
+                                 const char *<VAR>host</VAR>, 
+                                 Uint16 <VAR>port</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>address</VAR>
+<DD>This points to the IPaddress that will be filled in.
+It doesn't need to be set before calling this, but it must be allocated in memory.
+<DT><VAR>host</VAR>
+<DD>For connecting to a server, this is the hostname or IP in a string.<BR>
+For becoming a server, this is <B>NULL</B>.
+If you do use <B>NULL</B>, all network interfaces would be listened to for incoming connections, using the <B>INADDR_ANY</B> address.
+<DT><VAR>port</VAR>
+<DD>For connecting to a server, this is the the servers listening port number.<BR>
+For becoming a server, this is the port to listen on.<BR>
+If you are just doing Domain Name Resolution functions, this can be 0.
+</DL>
+<P>
+
+Resolve the string <VAR>host</VAR>, and fill in the IPaddress pointed to by <VAR>address</VAR>
+with the resolved IP and the port number passed in through <VAR>port</VAR>.<BR>
+This is the best way to fill in the IPaddress struct for later use.
+This function does not actually open any sockets, it is used to prepare the arguments for the socket opening functions.<BR>
+<B>WARNING</B>: this function will put the <VAR>host</VAR> and <VAR>port</VAR> into Network Byte Order into the <VAR>address</VAR> fields, so make sure you pass in the data in your hosts byte order. (normally not an issue)
+</P><P>
+
+<B>Returns</B>: 0 on success. -1 on errors, plus address.host will be INADDR_NONE.  An error would likely be that the address could not be resolved.
+</P><P>
+
+For a server listening on all interfaces, on port 1234:
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// create a server type IPaddress on port 1234
+IPaddress ipaddress;
+SDLNet_ResolveHost(&#38;ipaddress, NULL, 1234);
+</pre></td></tr></table></td></tr></table></P><P>
+
+For a client connecting to "host.domain.ext", at port 1234:
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// create an IPaddress for host name "host.domain.ext" on port 1234
+// this is used by a client
+IPaddress ipaddress;
+SDLNet_ResolveHost(&#38;ipaddress, "host.domain.ext", 1234);
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_17.html#SEC17">3.2.2 SDLNet_ResolveIP</A>,
+<A HREF="SDL_net_49.html#SEC49">4.1 IPaddress</A>
+</P><P>
+
+<A NAME="SDLNet_ResolveIP"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_15.html#SEC15"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_17.html#SEC17"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_15.html#SEC15"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

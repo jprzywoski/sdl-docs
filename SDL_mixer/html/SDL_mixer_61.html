@@ -1,0 +1,82 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_VolumeMusic</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_VolumeMusic">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_VolumeMusic">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC61"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_60.html#SEC60"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_62.html#SEC62"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.5.9 Mix_VolumeMusic </H3>
+<!--docid::SEC61::-->
+<P>
+
+<CODE>int <B>Mix_VolumeMusic</B>(int <VAR>volume</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>volume</VAR>
+<DD>Music volume, from 0 to <B>MIX_MAX_VOLUME</B>(128).<BR>
+Values greater than <B>MIX_MAX_VOLUME</B> will use <B>MIX_MAX_VOLUME</B>.<BR>
+-1 does not set the volume, but does return the current volume setting.
+</DL>
+<P>
+
+Set the volume to <VAR>volume</VAR>, if it is 0 or greater, and return the previous volume setting.  Setting the volume during a fade will not work, the faders use this function to perform their effect!  Setting volume while using an external music player set by <CODE>Mix_SetMusicCMD</CODE> will have no effect, and <CODE>Mix_GetError</CODE> will show the reason why not.
+</P><P>
+
+<B>Returns</B>: The previous volume setting.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// set the music volume to 1/2 maximum, and then check it
+printf("volume was    : %d\n", Mix_VolumeMusic(MIX_MAX_VOLUME/2));
+printf("volume is now : %d\n", Mix_VolumeMusic(-1));
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_58.html#SEC58">4.5.6 Mix_FadeInMusic</A>,
+<A HREF="SDL_mixer_68.html#SEC68">4.5.16 Mix_FadeOutMusic</A>,
+<A HREF="SDL_mixer_66.html#SEC66">4.5.14 Mix_SetMusicCMD</A>
+</P><P>
+
+<A NAME="Mix_PauseMusic"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

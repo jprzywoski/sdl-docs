@@ -1,0 +1,86 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_Volume</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_Volume">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_Volume">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC27"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_26.html#SEC26"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_28.html#SEC28"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_28.html#SEC28"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_25.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.3.2 Mix_Volume </H3>
+<!--docid::SEC27::-->
+<P>
+
+<CODE>int <B>Mix_Volume</B>(int <VAR>channel</VAR>, int <VAR>volume</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>channel</VAR>
+<DD>Channel to set mix volume for.<BR>
+<CODE>-1</CODE> will set the volume for all allocated channels.
+<DT><VAR>volume</VAR>
+<DD>The volume to use from 0 to <B>MIX_MAX_VOLUME</B>(128).<BR>
+If greater than <B>MIX_MAX_VOLUME</B>,<BR> then it will be set to <B>MIX_MAX_VOLUME</B>.<BR>
+If less than 0 then the volume will not be set.
+</DL>
+<P>
+
+Set the volume for any allocated channel.  If <VAR>channel</VAR> is <CODE>-1</CODE> then all channels at are set at once.  The <VAR>volume</VAR> is applied during the final mix, along with the sample volume.  So setting this volume to 64 will halve the output of all samples played on the specified channel.  All channels default to a volume of 128, which is the max.  Newly allocated channels will have the max volume set, so setting all channels volumes does not affect subsequent channel allocations.
+</P><P>
+
+<B>Returns</B>: current volume of the channel. If channel is -1, the average volume is returned.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// set channel 1 to half volume
+Mix_Volume(1,MIX_MAX_VOLUME/2);
+
+// print the average volume
+printf("Average volume is %d\n",Mix_Volume(-1,-1));
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_23.html#SEC23">4.2.7 Mix_VolumeChunk</A>,
+<A HREF="SDL_mixer_61.html#SEC61">4.5.9 Mix_VolumeMusic</A>
+</P><P>
+
+<A NAME="Mix_PlayChannel"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

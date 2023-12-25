@@ -1,0 +1,96 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Channels</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Channels">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Channels">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC25"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_24.html#SEC24"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_26.html#SEC26"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_42.html#SEC42"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 4.3 Channels </H2>
+<!--docid::SEC25::-->
+<P>
+
+These functions work with sound effect mixer channels.  Music is not affected by these functions.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+</TABLE>
+<B>Setup</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_26.html#SEC26">4.3.1 Mix_AllocateChannels</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Set the number of channels to mix</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_27.html#SEC27">4.3.2 Mix_Volume</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Set the mix volume of a channel</TD></TR>
+</TABLE>
+<B>Playing</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_28.html#SEC28">4.3.3 Mix_PlayChannel</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Play loop</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_29.html#SEC29">4.3.4 Mix_PlayChannelTimed</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Play loop and limit by time</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_30.html#SEC30">4.3.5 Mix_FadeInChannel</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Play loop with fade in</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_31.html#SEC31">4.3.6 Mix_FadeInChannelTimed</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Play loop with fade in and limit by time</TD></TR>
+</TABLE>
+<B>Pausing</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_32.html#SEC32">4.3.7 Mix_Pause</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Pause a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_33.html#SEC33">4.3.8 Mix_Resume</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Resume a paused channel</TD></TR>
+</TABLE>
+<B>Stopping</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_34.html#SEC34">4.3.9 Mix_HaltChannel</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Stop playing on a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_35.html#SEC35">4.3.10 Mix_ExpireChannel</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Change the timed stoppage of a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_36.html#SEC36">4.3.11 Mix_FadeOutChannel</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Stop playing channel after timed fade out</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_37.html#SEC37">4.3.12 Mix_ChannelFinished</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Set callback for when channel finishes playing</TD></TR>
+</TABLE>
+<B>Info</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_38.html#SEC38">4.3.13 Mix_Playing</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Get the active playing status of a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_39.html#SEC39">4.3.14 Mix_Paused</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Get the pause status of a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_40.html#SEC40">4.3.15 Mix_FadingChannel</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Get the fade status of a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_41.html#SEC41">4.3.16 Mix_GetChunk</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Get the sample playing on a channel</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Mix_AllocateChannels"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

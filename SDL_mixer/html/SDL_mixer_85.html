@@ -1,0 +1,90 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_Chunk</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_Chunk">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_Chunk">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC85"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_86.html#SEC86"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_91.html#SEC91"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 5.1 Mix_Chunk </H2>
+<!--docid::SEC85::-->
+<P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>typedef struct Mix_Chunk {
+    int <VAR>allocated</VAR>;
+    Uint8 *<VAR>abuf</VAR>;
+    Uint32 <VAR>alen</VAR>;
+    Uint8 <VAR>volume</VAR>;     /* Per-sample volume, 0-128 */
+} Mix_Chunk;
+</pre></td></tr></table></td></tr></table></P><P>
+
+<DL COMPACT>
+<DT><VAR>allocated</VAR>
+<DD>a boolean indicating whether to free <VAR>abuf</VAR> when the chunk is freed.<BR>
+0 if the memory was not allocated and thus not owned by this chunk.<BR>
+1 if the memory was allocated and is thus owned by this chunk.
+<DT><VAR>abuf</VAR>
+<DD>Pointer to the sample data, which is in the output format and sample rate.
+<DT><VAR>alen</VAR>
+<DD>Length of <VAR>abuf</VAR> in bytes.
+<DT><VAR>volume</VAR>
+<DD>0 = silent, 128 = max volume.  This takes effect when mixing.
+</DL>
+<P>
+
+The internal format for an audio chunk.
+This stores the sample data, the length in bytes of that data, and the volume to use
+when mixing the sample.
+</P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_23.html#SEC23">4.2.7 Mix_VolumeChunk</A>,
+<A HREF="SDL_mixer_41.html#SEC41">4.3.16 Mix_GetChunk</A>,
+<A HREF="SDL_mixer_19.html#SEC19">4.2.3 Mix_LoadWAV</A>,
+<A HREF="SDL_mixer_20.html#SEC20">4.2.4 Mix_LoadWAV_RW</A>,
+<A HREF="SDL_mixer_24.html#SEC24">4.2.8 Mix_FreeChunk</A>,
+<A HREF="SDL_mixer_86.html#SEC86">5.2 Mix_Music</A>
+</P><P>
+
+<A NAME="Mix_Music"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

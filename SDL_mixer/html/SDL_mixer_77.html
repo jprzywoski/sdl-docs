@@ -1,0 +1,85 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_UnregisterEffect</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_UnregisterEffect">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_UnregisterEffect">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC77"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_76.html#SEC76"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_78.html#SEC78"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_78.html#SEC78"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.6.2 Mix_UnregisterEffect </H3>
+<!--docid::SEC77::-->
+<P>
+
+<CODE>int <B>Mix_UnregisterEffect</B>(int <VAR>channel</VAR>, Mix_EffectFunc_t <VAR>f</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>channel</VAR>
+<DD>Channel number to remove <VAR>f</VAR> from as a post processor.<BR>
+Use <B>MIX_CHANNEL_POST</B> for the postmix stream.
+<DT><VAR>f</VAR>
+<DD>The function to remove from <VAR>channel</VAR>.
+</DL>
+<P>
+
+Remove the oldest (first found) registered effect function <VAR>f</VAR> from the effect list for <VAR>channel</VAR>.  This only removes the first found occurance of that function, so it may need to be called multiple times if you added the same function multiple times, just stop removing when <CODE>Mix_UnregisterEffect</CODE> returns an error, to remove all occurances of <VAR>f</VAR> from a channel.<BR>
+If the channel is active the registered effect will have its <CODE>Mix_EffectDone_t</CODE> function called, if it was specified in <CODE>Mix_RegisterEffect</CODE>.
+</P><P>
+
+<B>Returns</B>: Zero on errors, such as invalid channel, or effect function not registered on channel.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// unregister the noEffect from the postmix effects
+// this removes all occurances of noEffect registered to the postmix
+while(Mix_UnregisterEffect(MIX_CHANNEL_POST, noEffect));
+// you may print Mix_GetError() if you want to check it.
+// it should say "No such effect registered" after this loop.
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_78.html#SEC78">4.6.3 Mix_UnregisterAllEffects</A>,
+<A HREF="SDL_mixer_76.html#SEC76">4.6.1 Mix_RegisterEffect</A>
+</P><P>
+
+<A NAME="Mix_UnregisterAllEffects"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

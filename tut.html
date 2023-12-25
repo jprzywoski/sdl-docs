@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Getting Started</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1>SDL 1.2 Instructions</h1>
+
+	<h2>Code editor recommendations</h2>
+	<p>1. Visual Studio Code</p>
+	<p>2. Qt Creator (3.6.1 works fine with this setup)</p>
+	<p>3. Eclipse Cevelop</p>
+	<p>4. Notepad++ (Windows only)</p>
+	
+	<h2>Linux (Mint/Ubuntu)</h2>
+	<p>Install C/C++ build toolchain and SDL devel libraries using apt.</p>
+	<pre>
+$ sudo apt update
+$ sudo apt install build-essential git cmake autotools-dev automake libtool lcov
+$ sudo apt install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-net1.2-dev libsdl-ttf2.0-dev
+	</pre>
+	<p>Also recommended:</p>
+	<pre>
+$ sudo apt install clang clang-tools clang-tidy clang-format
+$ sudo apt install cppcheck flawfinder astyle uncrustify
+	</pre>
+	<h2>Windows</h2>
+	<p>Those instructions are for Windows XP SP3. If you are using anything modern install 
+newer versions of Git and gcc. Don't install 32 bit versions of Git on
+64 bit Windows and don't mix 32 bit and 64 bit libraries on your system.</p>
+
+	<p>a) Install Git for Windows (Git-2.10.0-32-bit)</p>
+	<p>Download: https://github.com/git-for-windows/git/releases/tag/v2.10.0.windows.1</p>
+
+	<p>b) Install TDM-GCC compiler (tdm-gcc-5.1.0-3.exe)</p>
+	<p>Download: https://sourceforge.net/projects/tdm-gcc/files/TDM-GCC%20Installer/</p>
+	<p>1. Deselect 'Check for updated ...' option if using the offline installer</p>
+	<p>2. (Optional) Add 'OpenMP' during install to get easy multithreading support</p>
+	<p>3. After install go to C:\TDM-GCC-32\bin and make copies of those two files
+	   (select the file, press CTRL+C and then CTRL+V): mingw32-make.exe and gdb32.exe.
+	Rename copies to simply 'make.exe' and 'gdb.exe' respectively.</p>
+
+	<p>c) Install SDL devel libraries</p>
+	<p>1. Go to C:\TDM-GCC-32\include\ and add a new folder called 'SDL'</p>
+	<p>2. Download and unpack the following files:</p>
+	<p>Download: https://libsdl.org/release/</p>
+	<p>SDL-devel-1.2.15-mingw32.tar.gz</p>
+	<p>SDL_image-devel-1.2.12-VC.zip</p>
+	<p>SDL_mixer-devel-1.2.12-VC.zip</p>
+	<p>SDL_net-devel-1.2.8-VC.zip</p>
+	<p>SDL_ttf-devel-2.0.11-VC.zip</p>
+	<p>3. Copy headers and libraries to C:\TDM-GCC-32 location, (use library files from x86 folders only):</p>
+	<p>a) All C headers '.h' go to C:\TDM-GCC-32\include\SDL</p>
+	<p>b) All import libraries '.lib' and '.a' go to C:\TDM-GCC-32\lib</p>
+	<p>c) All dlls '.dll' go to C:\TDM-GCC-32\bin</p>
+	<p>d) sdl-config goes to C:\TDM-GCC-32\bin</p>
+	</p>
+	
+	<p>c) (Optional) Install gtk+ (gtk+-bundle_2.24.10-20120208_win32)</p>
+	<p>Download: https://download.gnome.org/binaries/win32/gtk+/2.24/</p>
+	<p>Just copy the contents directly into C:\TDM-GCC-32, you will get some
+	warnings about overwriting files - I clicked 'yes' and nothing bad happened...</p>
+	
+	<p>e) (Optional) Install Emscripten (emsdk-1.12.0-full-32bit)</p>
+	<p>Download: https://web.archive.org/web/20160914220801/https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-1.12.0-full-32bit.exe</p>
+	<!-- <p>f) Install Android SDK and NDK</p> -->
+
+	<h2>Mac</h2>
+	<p>Work in progress.</p>
+
+</body>
+
+</html>

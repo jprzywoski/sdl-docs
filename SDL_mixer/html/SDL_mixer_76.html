@@ -1,0 +1,108 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_RegisterEffect</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_RegisterEffect">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_RegisterEffect">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC76"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_77.html#SEC77"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.6.1 Mix_RegisterEffect </H3>
+<!--docid::SEC76::-->
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>int <B>Mix_RegisterEffect</B>(int <VAR>chan</VAR>, Mix_EffectFunc_t <VAR>f</VAR>, Mix_EffectDone_t <VAR>d</VAR>,
+                       void *<VAR>arg</VAR>)
+</pre></td></tr></table></P><P>
+
+<DL COMPACT>
+<DT><VAR>chan</VAR>
+<DD>channel number to register <VAR>f</VAR> and <VAR>d</VAR> on.<BR>
+Use <B>MIX_CHANNEL_POST</B> to process the postmix stream.
+<DT><VAR>f</VAR>
+<DD>The function pointer for the effects processor.
+<DT><VAR>d</VAR>
+<DD>The function pointer for any cleanup routine to be called when the channel is done playing a sample.<BR>
+This may be <B>NULL</B> for any processors that don't need to clean up any memory or other dynamic data.
+<DT><VAR>arg</VAR>
+<DD>A pointer to data to pass into the <VAR>f</VAR>'s and <VAR>d</VAR>'s <CODE>udata</CODE> parameter.  It is a good place to keep the state data for the processor, especially if the processor is made to handle multiple channels at the same time.<BR>
+This may be <B>NULL</B>, depending on the processor.
+</DL>
+<P>
+
+Hook a processor function <VAR>f</VAR> into a channel for post processing effects.  You may just be reading the data and displaying it, or you may be altering the stream to add an echo.  Most processors also have state data that they allocate as they are in use, this would be stored in the <VAR>arg</VAR> pointer data space.  When a processor is finished being used, any function passed into <VAR>d</VAR> will be called, which is when your processor should clean up the data in the <VAR>arg</VAR> data space.<BR>
+The effects are put into a linked list, and always appended to the end, meaning they always work on previously registered effects output.  Effects may be added multiple times in a row.  Effects are cumulative this way.
+</P><P>
+
+<B>Returns</B>: Zero on errors, such as a nonexisting channel.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// make a passthru processor function that does nothing...
+void noEffect(int chan, void *stream, int len, void *udata)
+{
+    // you could work with stream here...
+}
+...
+// register noEffect as a postmix processor
+if(!Mix_RegisterEffect(MIX_CHANNEL_POST, noEffect, NULL, NULL)) {
+    printf("Mix_RegisterEffect: %s\n", Mix_GetError());
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_77.html#SEC77">4.6.2 Mix_UnregisterEffect</A>,
+<A HREF="SDL_mixer_78.html#SEC78">4.6.3 Mix_UnregisterAllEffects</A>
+</P><P>
+
+<A NAME="Mix_UnregisterEffect"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_77.html#SEC77"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

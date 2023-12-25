@@ -1,0 +1,98 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: SDLNet_UDP_Recv</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: SDLNet_UDP_Recv">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: SDLNet_UDP_Recv">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC32"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_31.html#SEC31"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_33.html#SEC33"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_33.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_25.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_35.html#SEC35"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.4.7 SDLNet_UDP_Recv </H3>
+<!--docid::SEC32::-->
+<P>
+
+<CODE>int <B>SDLNet_UDP_Recv</B>(UDPsocket <VAR>sock</VAR>, UDPpacket *<VAR>packet</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>sock</VAR>
+<DD>A valid UDPsocket.
+<DT><VAR>packet</VAR>
+<DD>The packet to receive into.
+</DL>
+<P>
+
+Receive a packet on the specified <VAR>sock</VAR> socket.<BR>
+The <VAR>packet</VAR> you pass in must have enough of a data size allocated for the incoming packet data to fit into.  This means you should have knowledge of your size needs before trying to receive UDP packets.<BR>
+The packet will have it's address set to the remote sender's address.<BR>
+The <VAR>socket</VAR>'s channels are checked in highest to lowest order, so if an address is bound to multiple channels, the highest channel with the source address bound will be retreived before the lower bound channels.  So, the packets channel will also be set to the highest numbered channel that has the remote address and port assigned to it.  Otherwise the channel will -1, which you can filter out easily if you want to ignore unbound source address.<BR>
+Note that the local and remote channel numbers do not have to, and probably won't, match, as they are only local settings, they are not sent in the packet.<BR>
+This is a non-blocking call, meaning if there's no data ready to be received the function will return.
+</P><P>
+
+<B>Returns</B>: 1 is returned when a packet is received.
+0 is returned when no packets are received.
+-1 is returned on errors.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// try to receive a waiting udp packet
+//UDPsocket udpsock;
+UDPpacket packet;
+int numrecv;
+
+numrecv=SDLNet_UDP_Recv(udpsock, &#38;packet);
+if(numrecv) {
+    // do something with packet
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_28.html#SEC28">3.4.3 SDLNet_UDP_Bind</A>,
+<A HREF="SDL_net_31.html#SEC31">3.4.6 SDLNet_UDP_Send</A>,
+<A HREF="SDL_net_33.html#SEC33">3.4.8 SDLNet_UDP_SendV</A>,
+<A HREF="SDL_net_34.html#SEC34">3.4.9 SDLNet_UDP_RecvV</A>,
+<A HREF="SDL_net_52.html#SEC52">4.4 UDPpacket</A>,
+<A HREF="SDL_net_51.html#SEC51">4.3 UDPsocket</A>
+</P><P>
+
+<A NAME="SDLNet_UDP_SendV"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

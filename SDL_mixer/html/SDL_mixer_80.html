@@ -1,0 +1,94 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_SetPanning</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_SetPanning">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_SetPanning">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC80"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_79.html#SEC79"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_81.html#SEC81"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_81.html#SEC81"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.6.5 Mix_SetPanning </H3>
+<!--docid::SEC80::-->
+<P>
+
+<CODE>int <B>Mix_SetPanning</B>(int <VAR>channel</VAR>, Uint8 <VAR>left</VAR>, Uint8 <VAR>right</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>channel</VAR>
+<DD>Channel number to register this effect on.<BR>
+Use <B>MIX_CHANNEL_POST</B> to process the postmix stream.
+<DT><VAR>left</VAR>
+<DD>Volume for the left channel, range is 0(silence) to 255(loud)
+<DT><VAR>right</VAR>
+<DD>Volume for the left channel, range is 0(silence) to 255(loud)
+</DL>
+<P>
+
+This effect will only work on stereo audio.  Meaning you called <CODE>Mix_OpenAudio</CODE>
+with 2 channels (<B>MIX_DEFAULT_CHANNELS</B>).  The easiest way to do true panning is to call
+<CODE>Mix_SetPanning(channel, left, 254 - left);</CODE> so that the total volume is correct,
+if you consider the maximum volume to be 127 per channel for center, or 254 max for left, this works, but about halves the effective volume.<BR>
+This Function registers the effect for you, so don't try to <CODE>Mix_RegisterEffect</CODE> it yourself.<BR>
+<B>NOTE</B>: Setting both <VAR>left</VAR> and <VAR>right</VAR> to 255 will unregister the effect from
+<VAR>channel</VAR>.  You cannot unregister it any other way, unless you use 
+<CODE>Mix_UnregisterAllEffects</CODE> on the <VAR>channel</VAR>.<BR>
+<B>NOTE</B>: Using this function on a mono audio device will not register the effect, nor will it return an error status.
+</P><P>
+
+<B>Returns</B>: Zero on errors, such as bad channel, or if <CODE>Mix_RegisterEffect</CODE> failed.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// pan channel 1 halfway to the left
+if(!Mix_SetPanning(1, 255, 127)) {
+    printf("Mix_SetPanning: %s\n", Mix_GetError());
+    // no panning, is it ok?
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_82.html#SEC82">4.6.7 Mix_SetPosition</A>,
+<A HREF="SDL_mixer_78.html#SEC78">4.6.3 Mix_UnregisterAllEffects</A>
+</P><P>
+
+<A NAME="Mix_SetDistance"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

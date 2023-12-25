@@ -1,0 +1,131 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: SDLNet_UDP_Send</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: SDLNet_UDP_Send">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: SDLNet_UDP_Send">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC31"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_30.html#SEC30"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_32.html#SEC32"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_32.html#SEC32"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_25.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_35.html#SEC35"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.4.6 SDLNet_UDP_Send </H3>
+<!--docid::SEC31::-->
+<P>
+
+<CODE>int <B>SDLNet_UDP_Send</B>(UDPsocket <VAR>sock</VAR>, int channel, UDPpacket *<VAR>packet</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>sock</VAR>
+<DD>A valid UDPsocket.
+<DT><VAR>channel</VAR>
+<DD>what channel to send packet on.
+<DT><VAR>packet</VAR>
+<DD>The packet to send.
+</DL>
+<P>
+
+Send <VAR>packet</VAR> using the specified socket <VAR>sock</VAR>, use ing the specified <VAR>channel</VAR> or else the <VAR>packet</VAR>'s address.<BR>
+If <VAR>channel</VAR> is not -1 then the packet is sent to all the socket channels bound addresses.  If socket <VAR>sock</VAR>'s channel is not bound to any destinations, then the packet is not sent at all!<BR>
+If the channel is -1, then the packet's address is used as the destination.<BR>
+<B>Don't forget to set the length of the packet in the <VAR>len</VAR> element of the <VAR>packet</VAR> you are sending!</B>
+<B>Note</B>: the <VAR>packet</VAR>-&#62;channel will be set to the channel passed in to this function.
+<B>Note</B>: The maximum size of the packet is limited by the MTU (Maximum Transfer Unit) of the transport medium.  It can be as low as 250 bytes for some PPP links, and as high as 1500 bytes for ethernet.  Beyond that limit the packet will fragment, and make delivery more and more unreliable as lost fragments cause the whole packet to be discarded.
+</P><P>
+
+<B>Returns</B>: The number of destinations sent to that worked. 0 is returned on errors.<BR>
+Note that since a channel can point to multiple destinations, there should be just as many packets sent, so dont assume it will always return 1 on success.  
+Unfortunately there's no way to get the number of destinations bound to a channel, so either you have to remember the number bound, or just test for the zero return value indicating all channels failed.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// send a packet using a UDPsocket, using the packet's channel as the channel
+//UDPsocket udpsock;
+//UDPpacket *packet;
+int numsent;
+
+numsent=SDLNet_UDP_Send(udpsock, packet-&#62;channel, packet);
+if(!numsent) {
+    printf("SDLNet_UDP_Send: %s\n", SDLNet_GetError());
+    // do something because we failed to send
+    // this may just be because no addresses are bound to the channel...
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+Here's a way of sending one packet using it's internal channel setting.<BR>
+This is actually what <B>SDLNet_UDP_Send</B> ends up calling for you.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// send a packet using a UDPsocket, using the packet's channel as the channel
+//UDPsocket udpsock;
+//UDPpacket *packet;
+int numsent;
+
+numsent=SDLNet_UDP_SendV(sock, &#38;packet, 1);
+if(!numsent) {
+    printf("SDLNet_UDP_SendV: %s\n", SDLNet_GetError());
+    // do something because we failed to send
+    // this may just be because no addresses are bound to the channel...
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_28.html#SEC28">3.4.3 SDLNet_UDP_Bind</A>,
+<A HREF="SDL_net_33.html#SEC33">3.4.8 SDLNet_UDP_SendV</A>,
+<A HREF="SDL_net_32.html#SEC32">3.4.7 SDLNet_UDP_Recv</A>,
+<A HREF="SDL_net_34.html#SEC34">3.4.9 SDLNet_UDP_RecvV</A>,
+<A HREF="SDL_net_52.html#SEC52">4.4 UDPpacket</A>,
+<A HREF="SDL_net_51.html#SEC51">4.3 UDPsocket</A>
+</P><P>
+
+<A NAME="SDLNet_UDP_Recv"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_30.html#SEC30"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_32.html#SEC32"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_32.html#SEC32"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_25.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_35.html#SEC35"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

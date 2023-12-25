@@ -1,0 +1,88 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_SetPostMix</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_SetPostMix">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_SetPostMix">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC79"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_78.html#SEC78"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_80.html#SEC80"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_80.html#SEC80"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.6.4 Mix_SetPostMix </H3>
+<!--docid::SEC79::-->
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>void <B>Mix_SetPostMix</B>(void (*<VAR>mix_func</VAR>)(void *udata, Uint8 *stream, int len),
+                    void *<VAR>arg</VAR>)
+</pre></td></tr></table></P><P>
+
+<DL COMPACT>
+<DT><VAR>mix_func</VAR>
+<DD>The function pointer for the postmix processor.<BR>
+<B>NULL</B> unregisters the current postmixer.
+<DT><VAR>arg</VAR>
+<DD>A pointer to data to pass into the <VAR>mix_func</VAR>'s <CODE>udata</CODE> parameter.  It is a good place to keep the state data for the processor, especially if the processor is made to handle multiple channels at the same time.<BR>
+This may be <B>NULL</B>, depending on the processor.
+</DL>
+<P>
+
+Hook a processor function <VAR>mix_func</VAR> to the postmix stream for post processing effects.  You may just be reading the data and displaying it, or you may be altering the stream to add an echo.  Most processors also have state data that they allocate as they are in use, this would be stored in the <VAR>arg</VAR> pointer data space.
+This processor is never really finished, until the audio device is closed, or you pass <B>NULL</B> as the <VAR>mix_func</VAR>.<BR>
+There can only be one postmix function used at a time through this method.  Use <CODE>Mix_RegisterEffect(MIX_CHANNEL_POST, mix_func, NULL, arg)</CODE> to use multiple postmix processors.<BR>
+This postmix processor is run AFTER all the registered postmixers set up by <CODE>Mix_RegisterEffect</CODE>.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// make a passthru processor function that does nothing...
+void noEffect(void *udata, Uint8 *stream, int len)
+{
+    // you could work with stream here...
+}
+...
+// register noEffect as a postmix processor
+Mix_SetPostMix(noEffect, NULL);
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_76.html#SEC76">4.6.1 Mix_RegisterEffect</A>
+</P><P>
+
+<A NAME="Mix_SetPanning"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

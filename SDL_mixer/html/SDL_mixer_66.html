@@ -1,0 +1,104 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_SetMusicCMD</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_SetMusicCMD">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_SetMusicCMD">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC66"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_65.html#SEC65"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_67.html#SEC67"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_54.html#SEC54"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.5.14 Mix_SetMusicCMD </H3>
+<!--docid::SEC66::-->
+<P>
+
+<CODE>int <B>Mix_SetMusicCMD</B>(const char *<VAR>command</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>command</VAR>
+<DD>System command to play the music.  Should be a complete command, as if typed in to the command line, but it should expect the filename to be added as the last argument.<BR>
+<B>NULL</B> will turn off using an external command for music, returning to the internal music playing functionality.
+</DL>
+<P>
+
+Setup a command line music player to use to play music.  Any music playing will be halted.  
+The music file to play is set by calling <CODE>Mix_LoadMUS(filename)</CODE>, and the filename is appended as the last argument on the commandline.  This allows you to reuse the music command to play multiple files.  The command will be sent signals <B>SIGTERM</B> to halt, <B>SIGSTOP</B> to pause, and <B>SIGCONT</B> to resume.  The command program should react correctly to those signals for it to function properly with SDL_Mixer.  <CODE>Mix_VolumeMusic</CODE> has no effect when using an external music player, and <CODE>Mix_GetError</CODE> will have an error code set.  You should set the music volume in the music player's command if the music player supports that.  Looping music works, by calling the command again when the previous music player process has ended.  Playing music through a command uses a forked process to execute the music command.<BR>
+To use the internal music players set the <VAR>command</VAR> to <B>NULL</B>.<BR>
+<B>NOTE</B>: External music is not mixed by SDL_mixer, so no post-processing hooks will be for music.<BR>
+<B>NOTE</B>: Playing music through an external command may not work if the sound driver does not support multiple openings of the audio device, since SDL_Mixer already has the audio device open for playing samples through channels.<BR>
+<B>NOTE</B>: Commands are not totally portable, so be careful.
+</P><P>
+
+<B>Returns</B>: 0 on success, or -1 on any errors, such as running out of memory.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// use mpg123 to play music
+Mix_Music *music=NULL;
+if(Mix_SetMusicCMD("mpg123 -q")==-1) {
+    perror("Mix_SetMusicCMD");
+} else {
+    // play some mp3 file
+    music=Mix_LoadMUS("music.mp3");
+    if(music) {
+        Mix_PlayMusic(music,1);
+    }
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_57.html#SEC57">4.5.5 Mix_PlayMusic</A>,
+<A HREF="SDL_mixer_61.html#SEC61">4.5.9 Mix_VolumeMusic</A>
+</P><P>
+
+<A NAME="Mix_HaltMusic"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_65.html#SEC65"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_67.html#SEC67"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_54.html#SEC54"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

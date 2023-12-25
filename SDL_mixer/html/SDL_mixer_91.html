@@ -1,0 +1,105 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Defines</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Defines">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Defines">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC91"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_90.html#SEC90"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_92.html#SEC92"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_92.html#SEC92"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_92.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1> 6. Defines </H1>
+<!--docid::SEC91::-->
+<P>
+
+<DL COMPACT>
+<A NAME="IDX2"></A>
+<A NAME="IDX3"></A>
+<DT><B>SDL_MIXER_MAJOR_VERSION</B>
+<DD><CODE>1</CODE><BR>
+SDL_mixer library major number at compilation time
+<A NAME="IDX4"></A>
+<A NAME="IDX5"></A>
+<DT><B>SDL_MIXER_MINOR_VERSION</B>
+<DD><CODE>2</CODE><BR>
+SDL_mixer library minor number at compilation time
+<DT><B>SDL_MIXER_PATCHLEVEL</B>
+<DD><A NAME="IDX6"></A>
+<A NAME="IDX7"></A>
+<CODE>9</CODE><BR>
+SDL_mixer library patch level at compilation time
+<DT><B>MIX_CHANNELS</B>
+<DD><A NAME="IDX8"></A>
+<CODE>8</CODE><BR>
+The default mixer has this many simultaneous mixing channels after the first 
+call to <CODE>Mix_OpenAudio</CODE>.
+<DT><B>MIX_DEFAULT_FREQUENCY</B>
+<DD><A NAME="IDX9"></A>
+<CODE>22050</CODE><BR>
+Good default sample rate in Hz (samples per second) for PC sound cards.
+<DT><B>MIX_DEFAULT_FORMAT</B>
+<DD><A NAME="IDX10"></A>
+<CODE>AUDIO_S16SYS</CODE><BR>
+The suggested default is signed 16bit samples in host byte order.
+<DT><B>MIX_DEFAULT_CHANNELS</B>
+<DD><A NAME="IDX11"></A>
+<CODE>2</CODE><BR>
+Stereo sound is a good default.
+<DT><B>MIX_MAX_VOLUME</B>
+<DD><A NAME="IDX12"></A>
+<CODE>128</CODE><BR>
+Maximum value for any volume setting.<BR>
+This is currently the same as <B>SDL_MIX_MAXVOLUME</B>.
+<DT><B>MIX_CHANNEL_POST</B>
+<DD><A NAME="IDX13"></A>
+<CODE>-2</CODE><BR>
+This is the channel number used for post processing effects.
+<DT><B>MIX_EFFECTSMAXSPEED</B>
+<DD><A NAME="IDX14"></A>
+<CODE>"MIX_EFFECTSMAXSPEED"</CODE><BR>
+A convience definition for the string name of the environment variable to define
+when you desire the internal effects to sacrifice quality and/or RAM for speed.
+The environment variable must be set (else nonexisting) before <CODE>Mix_OpenAudio</CODE>
+is called for the setting to take effect.
+</DL>
+<P>
+
+<A NAME="Glossary"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

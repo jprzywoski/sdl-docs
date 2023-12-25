@@ -1,0 +1,86 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Effects</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Effects">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Effects">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC75"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_74.html#SEC74"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_76.html#SEC76"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_84.html#SEC84"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 4.6 Effects </H2>
+<!--docid::SEC75::-->
+<P>
+
+These functions are for special effects processing.
+Not all effects are all that special.
+All effects are post processing routines that are either built-in to SDL_mixer or
+created by you.  Effects can be applied to individual channels, or to the final
+mixed stream which contains all the channels including music.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+</TABLE>
+<B>Registration</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_76.html#SEC76">4.6.1 Mix_RegisterEffect</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Hook a processor to a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_77.html#SEC77">4.6.2 Mix_UnregisterEffect</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Unhook a processor from a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_78.html#SEC78">4.6.3 Mix_UnregisterAllEffects</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Unhook all processors from a channel</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_79.html#SEC79">4.6.4 Mix_SetPostMix</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Hook in a postmix processor</TD></TR>
+</TABLE>
+<B>Built-in&nbsp;Processors</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_80.html#SEC80">4.6.5 Mix_SetPanning</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Stereo panning</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_81.html#SEC81">4.6.6 Mix_SetDistance</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Distance attenuation (volume)</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_82.html#SEC82">4.6.7 Mix_SetPosition</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Panning(angular) and distance</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_83.html#SEC83">4.6.8 Mix_SetReverseStereo</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Swap stereo left and right</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+The built-in processors: <CODE>Mix_SetPanning, Mix_SetPosition, Mix_SetDistance, and<BR>
+Mix_SetReverseStereo</CODE>, all look for an environment variable, <B>MIX_EFFECTSMAXSPEED</B> to be
+defined.
+If the environment variable is defined these processors may use more memory or reduce the quality of the effects, all for better speed.
+</P><P>
+
+<A NAME="Mix_RegisterEffect"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

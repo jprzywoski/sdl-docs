@@ -1,0 +1,97 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: SDLNet_TCP_Send</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: SDLNet_TCP_Send">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: SDLNet_TCP_Send">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC23"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_22.html#SEC22"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_24.html#SEC24"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_24.html#SEC24"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_25.html#SEC25"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.5 SDLNet_TCP_Send </H3>
+<!--docid::SEC23::-->
+<P>
+
+<CODE>int <B>SDLNet_TCP_Send</B>(TCPsocket <VAR>sock</VAR>, const void *<VAR>data</VAR>, int <VAR>len</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>sock</VAR>
+<DD>This is a valid, connected, TCPsocket.
+<DT><VAR>data</VAR>
+<DD>This is a pointer to the data to send over <VAR>sock</VAR>.
+<DT><VAR>len</VAR>
+<DD>This is the length (in bytes) if the <VAR>data</VAR>.
+</DL>
+<P>
+
+Send <VAR>data</VAR> of length <VAR>len</VAR> over the socket <VAR>sock</VAR>.<BR>
+This routine is not used for server sockets.
+</P><P>
+
+<B>Returns</B>: the number of bytes sent.
+If the number returned is less than <VAR>len</VAR>, then an error occured, such as the client disconnecting.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// send a hello over sock
+//TCPsocket sock;
+int len,result;
+char *msg="Hello!";
+
+len=strlen(msg)+1; // add one for the terminating NULL
+result=SDLNet_TCP_Send(sock,msg,len);
+if(result&#60;len) {
+    printf("SDLNet_TCP_Send: %s\n", SDLNet_GetError());
+    // It may be good to disconnect sock because it is likely invalid now.
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_24.html#SEC24">3.3.6 SDLNet_TCP_Recv</A>,
+<A HREF="SDL_net_21.html#SEC21">3.3.3 SDLNet_TCP_Accept</A>,
+<A HREF="SDL_net_19.html#SEC19">3.3.1 SDLNet_TCP_Open</A>,
+<A HREF="SDL_net_22.html#SEC22">3.3.4 SDLNet_TCP_GetPeerAddress</A>,
+<A HREF="SDL_net_20.html#SEC20">3.3.2 SDLNet_TCP_Close</A>,
+<A HREF="SDL_net_50.html#SEC50">4.2 TCPsocket</A>
+</P><P>
+
+<A NAME="SDLNet_TCP_Recv"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

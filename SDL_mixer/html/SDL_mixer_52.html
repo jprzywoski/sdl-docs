@@ -1,0 +1,118 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Music</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Music">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Music">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC52"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_51.html#SEC51"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_53.html#SEC53"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 4.5 Music </H2>
+<!--docid::SEC52::-->
+<P>
+
+These functions work with music.  Music is not played on a normal mixer channel.
+Music is therefore manipulated separately, except in post-processing hooks.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+</TABLE>
+<B>Loading</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_53.html#SEC53">4.5.1 Mix_GetNumMusicDecoders</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Number of music format types that can be decoded</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_54.html#SEC54">4.5.2 Mix_GetMusicDecoder</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Name of enumerated music format type decoder</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_55.html#SEC55">4.5.3 Mix_LoadMUS</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Load a music file into a Mix_Music</TD></TR>
+</TABLE>
+<B>Free</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_56.html#SEC56">4.5.4 Mix_FreeMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Free a Mix_Music</TD></TR>
+</TABLE>
+<B>Playing</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_57.html#SEC57">4.5.5 Mix_PlayMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Play music, with looping</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_58.html#SEC58">4.5.6 Mix_FadeInMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Play music, with looping, and fade in</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_59.html#SEC59">4.5.7 Mix_FadeInMusicPos</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Play music from a start point, with looping, and fade in</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_60.html#SEC60">4.5.8 Mix_HookMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Hook for a custom music player</TD></TR>
+</TABLE>
+<B>Settings</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_61.html#SEC61">4.5.9 Mix_VolumeMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Set music volume</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_62.html#SEC62">4.5.10 Mix_PauseMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Pause music</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_63.html#SEC63">4.5.11 Mix_ResumeMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Resume paused music</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_64.html#SEC64">4.5.12 Mix_RewindMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Rewind music to beginning</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_65.html#SEC65">4.5.13 Mix_SetMusicPosition</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Set position of playback in stream</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_66.html#SEC66">4.5.14 Mix_SetMusicCMD</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Use external program for music playback</TD></TR>
+</TABLE>
+<B>Stopping</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_67.html#SEC67">4.5.15 Mix_HaltMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Stop music playback</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_68.html#SEC68">4.5.16 Mix_FadeOutMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Stop music, with fade out</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_69.html#SEC69">4.5.17 Mix_HookMusicFinished</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Set a callback for when music stops</TD></TR>
+</TABLE>
+<B>Info</B>
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_70.html#SEC70">4.5.18 Mix_GetMusicType</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Get the music encoding type</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_71.html#SEC71">4.5.19 Mix_PlayingMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Test whether music is playing</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_72.html#SEC72">4.5.20 Mix_PausedMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Test whether music is paused</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_73.html#SEC73">4.5.21 Mix_FadingMusic</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Get status of current music fade activity</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="SDL_mixer_74.html#SEC74">4.5.22 Mix_GetMusicHookData</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Retrieve the Mix_HookMusic <VAR>arg</VAR></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Mix_GetNumMusicDecoders"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_51.html#SEC51"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_53.html#SEC53"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

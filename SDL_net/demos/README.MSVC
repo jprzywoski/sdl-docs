@@ -1,0 +1,19 @@
+MSVC projects made by SilentStrike
+
+First unzip the MSVC.ZIP file in the same dir as the source.
+
+In order to build the projects, open up sdlnet_demos.dsw with MSVC6.
+The projects should build by without error with MSVC6 as long as the SDL and
+SDL_net libs are in the correct spots (libs in compiler libs directory, 
+includes in compiler includes directory).  The current project can be switched
+by going to build -> set active configuration. 
+
+The command line arguments can be set from MSVC by going to Project 
+Settings/Debug/Program Arguments.  Still, I'd recommend using a console or 
+two to see get the timesyncing and multi server/clients working nicely, rather
+than just running them from MSVC, as changing the command line arguments from within
+MSVC is kind of painful.
+
+The usage for the projects is the exact same as in the README, with the exception
+of tcpmulticlient, which doesn't work because select does not work with stdin
+in windows (as it does with Unix).

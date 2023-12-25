@@ -1,0 +1,106 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_GetMusicType</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_GetMusicType">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_GetMusicType">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC70"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_69.html#SEC69"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_71.html#SEC71"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_54.html#SEC54"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.5.18 Mix_GetMusicType </H3>
+<!--docid::SEC70::-->
+<P>
+
+<CODE>Mix_MusicType <B>Mix_GetMusicType</B>(const Mix_Music *<VAR>music</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>music</VAR>
+<DD>The music to get the type of.<BR>
+<B>NULL</B> will get the currently playing music type.
+</DL>
+<P>
+
+Tells you the file format encoding of the music.  This may be handy when used
+with <CODE>Mix_SetMusicPosition</CODE>, and other music functions that vary based on
+the type of music being played.  If you want to know the type of music currently
+being played, pass in <B>NULL</B> to <VAR>music</VAR>.
+</P><P>
+
+<B>Returns</B>: The type of <VAR>music</VAR> or if <VAR>music</VAR> is <B>NULL</B> then the currently playing music type, otherwise <B>MUS_NONE</B> if no music is playing.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// print the type of music currently playing
+switch(Mix_GetMusicType(NULL))
+{
+    case MUS_NONE:
+    MUS_CMD:
+        printf("Command based music is playing.\n");
+        break;
+    MUS_WAV:
+        printf("WAVE/RIFF music is playing.\n");
+        break;
+    MUS_MOD:
+        printf("MOD music is playing.\n");
+        break;
+    MUS_MID:
+        printf("MIDI music is playing.\n");
+        break;
+    MUS_OGG:
+        printf("OGG music is playing.\n");
+        break;
+    MUS_MP3:
+        printf("MP3 music is playing.\n");
+        break;
+    default:
+        printf("Unknown music is playing.\n");
+        break;
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_87.html#SEC87">5.3 Mix_MusicType</A>,
+<A HREF="SDL_mixer_82.html#SEC82">4.6.7 Mix_SetPosition</A>
+</P><P>
+
+<A NAME="Mix_PlayingMusic"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

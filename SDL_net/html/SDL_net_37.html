@@ -1,0 +1,95 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: SDLNet_ResizePacket</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: SDLNet_ResizePacket">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: SDLNet_ResizePacket">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC37"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_36.html#SEC36"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_38.html#SEC38"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_38.html#SEC38"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_35.html#SEC35"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_41.html#SEC41"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.5.2 SDLNet_ResizePacket </H3>
+<!--docid::SEC37::-->
+<P>
+
+<CODE>int <B>SDLNet_ResizePacket</B>(UDPpacket *<VAR>packet</VAR>, int <VAR>size</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>packet</VAR>
+<DD>A pointer to the UDPpacket to be resized.
+<DT><VAR>size</VAR>
+<DD>The new desired size, in bytes, of the data buffer to be allocated in the UDPpacket.<BR>
+Zero is invalid.
+</DL>
+<P>
+
+Resize a UDPpackets data buffer to <VAR>size</VAR> bytes.
+The old data buffer will not be retained, so the new buffer is invalid after this call.
+</P><P>
+
+<B>Returns</B>: the new size of the data in the packet.
+If the number returned is less than what you asked for, that's an error.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// Resize a UDPpacket to hold 2048 bytes of data
+//UDPpacket *packet;
+int newsize;
+
+newsize=SDLNet_ResizePacket(packet, 2048);
+if(newsize&#60;2048) {
+    printf("SDLNet_ResizePacket: %s\n", SDLNet_GetError());
+    // perhaps do something else since you didn't get the buffer you wanted
+}
+else {
+    // do stuff with the resized packet
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_36.html#SEC36">3.5.1 SDLNet_AllocPacket</A>,
+<A HREF="SDL_net_39.html#SEC39">3.5.4 SDLNet_AllocPacketV</A>,
+<A HREF="SDL_net_38.html#SEC38">3.5.3 SDLNet_FreePacket</A>,
+<A HREF="SDL_net_52.html#SEC52">4.4 UDPpacket</A>
+</P><P>
+
+<A NAME="SDLNet_FreePacket"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

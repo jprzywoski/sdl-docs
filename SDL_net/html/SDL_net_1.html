@@ -1,0 +1,173 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: Overview</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: Overview">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: Overview">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC1"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_2.html#SEC2"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_2.html#SEC2"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<A NAME="Overview"></A>
+<H1> 1. Overview </H1>
+<!--docid::SEC1::-->
+<P>
+
+<center>
+ <B>A Little Bit About Me</B>
+</center>
+</P><P>
+
+I am currently, as I write this document, a programmer for Raytheon.  There I do all sorts of communications, network, GUI, and other general programming tasks in C/C++ on the Solaris and sometimes Linux Operating Systems.  I have been programming network code at work and in my free time for about 8 years.  I find there is always more to learn about network coding, but the rewards for making something comunicate over what can only be called the most chaotic channel of information transfer are sometimes to much fun to ignore.  I have coded only a few things in SDL_net that I would call complete projects.  However SDL_net does make network coding easier and more portable than anything I could code using just plain BSD sockets.  I was happy that I could finally base my code on something that is portable and small enough to be unintrusive.  SDL_net does sometimes seem to oversimplify some things, but in the end I found that if I couldn't do it in SDL_net then perhaps I'm not doing something that is worthwhile.  Of course I have and will continue to do things that are not so worthwhile perhaps, using SDL_net.  Like a Web Server library, and an IRC client library.  But I still enjoy making them anyway!  So if you are making a game, or doing a school project, or even making a no-fun application, SDL_net is a viable choice in my opinion for almost any of these tasks.  If you are interested in multicast and non-TCP/IPv4 networking then SDL_net is not the right thing for you.  Everyone else, please make more network games that are fun to play, and portable enough that more people are out there to play with.  I, meanwhile, will continue writting documentation and applications and games that will likely become vapourware before they even see the light of day, but I'll be having fun the whole time.
+</P><P>
+
+Feel free to contact me: <A HREF="mailto:JonathanCAtkins@gmail.com">JonathanCAtkins@gmail.com</A><BR>
+</P><P>
+
+I am also usually on IRC at irc.freenode.net in the #SDL channel as LIM
+</P><P>
+
+<A NAME="IDX1"></A>
+</P><P>
+
+This is the README in the SDL_net source archive.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+SDL_net 1.2
+</P><P>
+
+The latest version of this library is available from:<BR>
+<A HREF="http://www.libsdl.org/projects/SDL_net/">SDL_net Homepage</A>
+</P><P>
+
+This is an example portable network library for use with SDL.
+It is available under the GNU Library General Public License.
+The API can be found in the file SDL_net.h
+This library supports UNIX, Windows, and BeOS.  MacOS support is being written.
+</P><P>
+
+The demo program is a chat client and server.
+The chat client requires the sample GUI library available at:<BR>
+<A HREF="http://www.libsdl.org/projects/GUIlib/">GUIlib Homepage</A><BR>
+The chat client connects to the server via TCP, registering itself.
+The server sends back a list of connected clients, and keeps the
+client updated with the status of other clients.
+Every line of text from a client is sent via UDP to every other client.
+</P><P>
+
+Note that this isn't necessarily how you would want to write a chat
+program, but it demonstrates how to use the basic features of the 
+network library.
+</P><P>
+
+Enjoy!
+</P><P>
+
+        -Sam Lantinga and Roy Wood
+</td></tr></table></P><P>
+
+You may want to look at <BR>
+<A HREF="http://www.ecst.csuchico.edu/~beej/guide/net/">Beej's Guide to Network Programming</A>, which explains network programming using BSD sockets.  You can apply the knowledge from there while using SDL_net.
+</P><P>
+
+And here's a bit of humor for you to look at as you deal with networking terms.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<center>
+ <B>Dr. Suess as a Network Wizard</B>
+</center>
+</P><P>
+
+<center>
+ <A HREF="mailto:Gene_Ziegler@Cornell.edu">Gene_Ziegler@Cornell.edu</A>
+</center>
+</P><P>
+
+Here's an easy game to play.<BR>
+Here's an easy thing to say....<BR>
+</P><P>
+
+If a packet hits a pocket on a socket on a port,<BR>
+and the bus is interupted as a very last resort,<BR>
+and the address of the memory makes your floppy disk abort<BR>
+then the socket packet pocket has an error to report!<BR>
+</P><P>
+
+If your cursor finds a menu item followed by a dash,<BR>
+and the double-clicking icon puts your window in the trash,<BR>
+and your data is corrupted cause the index doesn't hash,<BR>
+then your situation's hopeless, and your system's gona crash.<BR>
+</P><P>
+
+You can't say this? What a shame, sir!<BR>
+We'll find you another game, sir.<BR>
+</P><P>
+
+If the label on the cable on the table at your house<BR>
+says the network is connected to the button on your mouse,<BR>
+but your packets want to tunnel on another protocol,<BR>
+that's repeatedly rejected by the printer down the hall,<BR>
+and your screen is all distorted by the side-effects of gauss,<BR>
+so your icons in the window are as wavy as a souse,<BR>
+then you may as well reboot and go out with a bang,<BR>
+cause as sure as I'm a poet, the sucker's gunna hang!<BR>
+</P><P>
+
+When the copy of your floppy's getting sloppy on the disk,<BR>
+and the microcode instructions cause unecessary risc,<BR>
+then you have to flash your memory and you'll want to RAM your ROM.<BR>
+quickly turn of your computer and be sure to tell your mom!<BR>
+</td></tr></table></P><P>
+
+<A NAME="Getting Started"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_2.html#SEC2"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_2.html#SEC2"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

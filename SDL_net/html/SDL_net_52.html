@@ -1,0 +1,96 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: UDPpacket</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: UDPpacket">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: UDPpacket">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC52"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_51.html#SEC51"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_53.html#SEC53"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_53.html#SEC53"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_48.html#SEC48"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_55.html#SEC55"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 4.4 UDPpacket </H2>
+<!--docid::SEC52::-->
+<P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>typedef struct {
+    int <VAR>channel</VAR>;          /* The src/dst channel of the packet */
+    Uint8 *<VAR>data</VAR>;          /* The packet data */
+    int <VAR>len</VAR>;              /* The length of the packet data */
+    int <VAR>maxlen</VAR>;           /* The size of the data buffer */
+    int <VAR>status</VAR>;           /* packet status after sending */
+    IPaddress <VAR>address</VAR>;    /* The source/dest address of an 
+                                   incoming/outgoing packet */
+} UDPpacket;
+
+</pre></td></tr></table></td></tr></table></P><P>
+
+<DL COMPACT>
+<DT><VAR>channel</VAR>
+<DD>The (software) channel number for this packet.  This can also be used as a priority value for the packet.  If no channel is assigned, the value is -1.
+<DT><VAR>data</VAR>
+<DD>The data contained in this packet, this is the meat.
+<DT><VAR>len</VAR>
+<DD>This is the meaningful length of the data in bytes.
+<DT><VAR>maxlen</VAR>
+<DD>This is size of the data buffer, which may be larger than the meaningful length.
+This is only used for packet creation on the senders side.
+<DT><VAR>status</VAR>
+<DD>This contains the number of bytes sent, or a -1 on errors, after sending.
+This is useless for a received packet.
+<DT><VAR>address</VAR>
+<DD>This is the resolved IPaddress to be used when sending,
+or it is the remote source of a received packet.
+</DL>
+<P>
+
+This struct is used with UDPsockets to send and receive data.
+It also helps keep track of a packets sending/receiving settings and status.
+The channels concept helps prioritize, or segregate differring types of data packets.
+</P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_35.html#SEC35">3.5 UDP Packets</A>,
+<A HREF="SDL_net_51.html#SEC51">4.3 UDPsocket</A>,
+<A HREF="SDL_net_49.html#SEC49">4.1 IPaddress</A>
+</P><P>
+
+<A NAME="SDLNet_SocketSet"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

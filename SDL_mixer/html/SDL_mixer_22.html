@@ -1,0 +1,86 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_QuickLoad_RAW</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_QuickLoad_RAW">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_QuickLoad_RAW">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC22"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_21.html#SEC21"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_23.html#SEC23"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_23.html#SEC23"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_16.html#SEC16"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_25.html#SEC25"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.2.6 Mix_QuickLoad_RAW </H3>
+<!--docid::SEC22::-->
+<P>
+
+<CODE>Mix_Chunk *<B>Mix_QuickLoad_RAW</B>(Uint8 *<VAR>mem</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>mem</VAR>
+<DD>Memory buffer containing a WAVE file in output format.
+</DL>
+<P>
+
+Load <VAR>mem</VAR> as a raw sample.  The data in <VAR>mem</VAR> must be already in the output format.  If you aren't sure what you are doing, this is not a good function for you!<BR>
+<B>Note</B>: This function does very little checking.  If the format mismatches the output format it will not return an error.  This is probably a dangerous function to use.
+</P><P>
+
+<B>Returns</B>: a pointer to the sample as a <CODE>Mix_Chunk</CODE>.  <B>NULL</B> is returned on errors, such as when out of memory.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// quick-load a raw sample from memory
+// Uint8 *raw; // I assume you have the raw data here,
+                // or compiled in the program...
+Mix_Chunk *raw_chunk;
+if(!(raw_chunk=Mix_QuickLoad_RAW(raw))) {
+    printf("Mix_QuickLoad_RAW: %s\n", Mix_GetError());
+    // handle error
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_19.html#SEC19">4.2.3 Mix_LoadWAV</A>,
+<A HREF="SDL_mixer_21.html#SEC21">4.2.5 Mix_QuickLoad_WAV</A>,
+<A HREF="SDL_mixer_24.html#SEC24">4.2.8 Mix_FreeChunk</A>
+</P><P>
+
+<A NAME="Mix_VolumeChunk"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

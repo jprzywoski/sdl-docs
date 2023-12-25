@@ -1,0 +1,94 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_FadeInMusicPos</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_FadeInMusicPos">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_FadeInMusicPos">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC59"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_58.html#SEC58"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_60.html#SEC60"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_60.html#SEC60"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_52.html#SEC52"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_75.html#SEC75"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.5.7 Mix_FadeInMusicPos </H3>
+<!--docid::SEC59::-->
+<P>
+
+<CODE>int <B>Mix_FadeInMusicPos</B>(Mix_Music *<VAR>music</VAR>, int <VAR>loops</VAR>, int <VAR>ms</VAR>, double <VAR>position</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>music</VAR>
+<DD>Pointer to Mix_Music to play.
+<DT><VAR>loops</VAR>
+<DD>number of times to play through the music.<BR>
+0 plays the music zero times...<BR>
+-1 plays the music forever (or as close as it can get to that)
+<DT><VAR>ms</VAR>
+<DD>Milliseconds for the fade-in effect to complete.
+<DT><VAR>position</VAR>
+<DD>Posistion to play from, see <CODE>Mix_SetMusicPosition</CODE> for meaning.
+</DL>
+<P>
+
+Fade in over <VAR>ms</VAR> milliseconds of time, the loaded <VAR>music</VAR>, playing it <VAR>loop</VAR> times through from start to finish.<BR>
+The fade in effect only applies to the first loop.<BR>
+The first time the music is played, it posistion will be set to <VAR>posistion</VAR>, which means different things for different types of music files, see <CODE>Mix_SetMusicPosition</CODE> for more info on that.<BR>
+Any previous music will be halted, or if it is fading out it will wait (blocking) for the fade to complete.<BR>
+</P><P>
+
+<B>Returns</B>: 0 on success, or -1 on errors.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// play music forever, fading in over 2 seconds
+// Mix_Music *music; // I assume this has been loaded already
+if(Mix_FadeInMusicPos(music, -1, 2000)==-1) {
+    printf("Mix_FadeInMusic: %s\n", Mix_GetError());
+    // well, there's no music, but most games don't break without music...
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_57.html#SEC57">4.5.5 Mix_PlayMusic</A>,
+<A HREF="SDL_mixer_58.html#SEC58">4.5.6 Mix_FadeInMusic</A>,
+<A HREF="SDL_mixer_65.html#SEC65">4.5.13 Mix_SetMusicPosition</A>
+</P><P>
+
+<A NAME="Mix_HookMusic"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

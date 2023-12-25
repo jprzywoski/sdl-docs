@@ -1,0 +1,86 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 3  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_net 1.2.7: SDLNet_ResolveIP</TITLE>
+
+<META NAME="description" CONTENT="SDL_net 1.2.7: SDLNet_ResolveIP">
+<META NAME="keywords" CONTENT="SDL_net 1.2.7: SDLNet_ResolveIP">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC17"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_16.html#SEC16"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_15.html#SEC15"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_18.html#SEC18"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_57.html#SEC57">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_net_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.2.2 SDLNet_ResolveIP </H3>
+<!--docid::SEC17::-->
+<P>
+
+<CODE>const char *<B>SDLNet_ResolveIP</B>(IPaddress *<VAR>address</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>address</VAR>
+<DD>This points to the IPaddress that will be resolved to a host name.
+The address-&#62;port is ignored.
+</DL>
+<P>
+
+Resolve the IPv4 numeric address in <VAR>address</VAR>-&#62;host, and return the hostname as a string.
+</P><P>
+
+<B>Returns</B>: a valid char pointer (string) on success. the returned hostname will have host and domain, as in "host.domain.ext".
+<B>NULL</B> is returned on errors, such as when it's not able to resolve the host name.
+The returned pointer is not to be freed.  Each time you call this function the previous pointer's data will change to the new value, so you may have to copy it into a local buffer to keep it around longer.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// resolve the host name of the address in ipaddress
+//IPaddress ipaddress;
+char *host;
+if(!(host=SDLNet_ResolveIP(&#38;ipaddress))) {
+    printf("SDLNet_ResolveIP: %s\n", SDLNet_GetError());
+    exit(1);
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_net_16.html#SEC16">3.2.1 SDLNet_ResolveHost</A>,
+<A HREF="SDL_net_49.html#SEC49">4.1 IPaddress</A>
+</P><P>
+
+<A NAME="TCP Sockets"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 3  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

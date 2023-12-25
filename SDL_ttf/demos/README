@@ -1,0 +1,36 @@
+ABOUT
+~~~~~
+
+    These are some simple programs that demonstrate how to program using SDL_ttf.
+
+
+COMPILATION
+~~~~~~~~~~~
+
+    run "make"
+
+THE PROGRAMS
+~~~~~~~~~~~~
+
+latin1.c
+    demonstrates:
+		draws a font to screen with any style.
+
+
+    try:
+		./latin1 CircleOfDust.ttf
+		./latin1 freefont-ttf/sfd/FreeSans.ttf
+
+	usage:
+		mouse clicks 	moves the upper left corner of the rendering around
+		left and right 	decrement/increment starting character by 0x100
+		0				go to character 0 (the start)
+		up and down 	adjust font size
+		N				reset style to normal
+		B				toggle bold style
+		I				toggle italic style
+		U				toggle underline style
+		S				toggle strikethrough style
+		- and = 		decrement/increment outline size
+		K				toggle kerning support (only visible in bottom pangram)
+		Esc or Q		quit

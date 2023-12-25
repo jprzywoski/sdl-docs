@@ -1,0 +1,100 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on November, 13  2009 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>SDL_mixer 1.2.10: Mix_QuerySpec</TITLE>
+
+<META NAME="description" CONTENT="SDL_mixer 1.2.10: Mix_QuerySpec">
+<META NAME="keywords" CONTENT="SDL_mixer 1.2.10: Mix_QuerySpec">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC15"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_14.html#SEC14"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_16.html#SEC16"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_6.html#SEC6"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_7.html#SEC7"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_16.html#SEC16"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_93.html#SEC93">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="SDL_mixer_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.1.8 Mix_QuerySpec </H3>
+<!--docid::SEC15::-->
+<P>
+
+<CODE>int <B>Mix_QuerySpec</B>(int *<VAR>frequency</VAR>, Uint16 *<VAR>format</VAR>, int *<VAR>channels</VAR>)</CODE>
+</P><P>
+
+<DL COMPACT>
+<DT><VAR>frequency</VAR>
+<DD>A pointer to an int where the frequency actually used by the opened audio device will be stored.
+<DT><VAR>format</VAR>
+<DD>A pointer to a Uint16 where the output format actually being used by the audio device will be stored.
+<DT><VAR>channels</VAR>
+<DD>A pointer to an int where the number of audio channels will be stored.<BR>
+2 will mean stereo, 1 will mean mono.
+</DL>
+<P>
+
+Get the actual audio format in use by the opened audio device.  This may or may not match the parameters you passed to <B>Mix_OpenAudio</B>.
+</P><P>
+
+<B>Returns</B>: 0 on error. If the device was open the number of times it was opened will be returned.  The values of the arguments variables are not set on an error.
+</P><P>
+
+<table border=1 cellspacing=0><tr><td bgcolor=silver>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>// get and print the audio format in use
+int numtimesopened, frequency, channels;
+Uint16 format;
+numtimesopened=Mix_QuerySpec(&#38;frequency, &#38;format, &#38;channels);
+if(!numtimesopened) {
+    printf("Mix_QuerySpec: %s\n",Mix_GetError());
+}
+else {
+    char *format_str="Unknown";
+    switch(format) {
+        case AUDIO_U8: format_str="U8"; break;
+        case AUDIO_S8: format_str="S8"; break;
+        case AUDIO_U16LSB: format_str="U16LSB"; break;
+        case AUDIO_S16LSB: format_str="S16LSB"; break;
+        case AUDIO_U16MSB: format_str="U16MSB"; break;
+        case AUDIO_S16MSB: format_str="S16MSB"; break;
+    }
+    printf("opened=%d times  frequency=%dHz  format=%s  channels=%d",
+            numtimesopened, frequency, format_str, channels);
+}
+</pre></td></tr></table></td></tr></table></P><P>
+
+<B>See Also</B>:<BR>
+<A HREF="SDL_mixer_11.html#SEC11">4.1.4 Mix_OpenAudio</A>
+</P><P>
+
+<A NAME="Samples"></A>
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+on <I>November, 13  2009</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

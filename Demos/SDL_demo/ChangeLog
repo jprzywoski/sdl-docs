@@ -1,0 +1,5 @@
+* 12 Sep 2004
+- fade_out() function to fade the screen to black
+- Minor cleanups in order to release the code
+* 21 Apr 2004
+- First Version

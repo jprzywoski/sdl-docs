@@ -1,0 +1,75 @@
+
+ Parallax Scrolling IV - Overdraw Elimination +
+ ----------------------------------------------
+
+    This is the fourth of the SDL scrolling
+    examples, and uses an improved version
+    of the recursive overdraw eliminating
+    algorithm from Parallax Scrolling III.
+
+
+Just as Parallax Scrolling III, this version
+renders the screen from front to back, adjusting
+the target surface clip rectangle to keep the
+"underlying" graphics from covering the areas
+already rendered.
+
+The difference is that instead of working with
+one tile at a time (which results in lots of
+recursions and clipping overhead), this version
+looks ahead, and processes runs of similar tiles
+in "batches". Only one recursive call per run is
+required, as opposed to one per tile.
+
+Just as before, there are three classes of tiles;
+
+  1. Fully opaque.
+	Very simple: The tile is drawn as defined
+	in the map data, and no further action is
+	taken. This case terminates recursion.
+
+  2. Fully transparent.
+	Recursion is done in order to render the
+	next layer. No further action is taken.
+
+  3. Partially transparent.
+	Recursion to the next layer is done as for
+	case 2. Then the color keyed or blended
+	tile is rendered on top of the result,
+	after the recursive call chain returns.
+
+The "run detector" treats 2 and 3 the same, so
+there are effectively only two kinds of runs;
+opaque runs (that terminate recursion), and
+partially transparent runs (containing both empty
+and partially transparent tiles), which requires
+a recursive call to the underlying layer(s)
+before being rendered.
+
+This version scales *much* better than Parallax
+Scrolling III, but honestly, it still sucks.
+Some day, I'm probably going to go all the way,
+and create a heavily optimized version, with all
+the hairiness you could expect from such a beast.
+
+Or why not try to beat me to it? ;-)
+
+
+The program supports a few command line options:
+
+	-f	Fullscreen
+	-d	Double buffer
+	-<n>	Depth = <n> bits
+	-l<n>	Use <n> layers (default = 7)
+	-b	"Bounce-around" mode
+	-w	Wrap maps instead of bouncing
+	-a<n>	Alpha for non-opaque tiles = <n>
+	-v<n>	Verbosity level <n> (default = 0)
+	-np	Don't use planet layers
+	-nr	Don't use the "run detector".
+		(This makes the algorithm work
+		like the previous version; one
+		tile at a time.)
+
+
+	//David Olofson  <david@olofson.net>

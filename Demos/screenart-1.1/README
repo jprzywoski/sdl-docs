@@ -1,0 +1,27 @@
+Screen Art- A little bit of dizzying eye candy SDL demo. Version 1.1.1 (8/1/2001)
+
+This program is intended to be a demonstration of SDL, the Simple
+DirectMedia Layer.
+
+Compiling the demo:
+
+Run 'make'
+
+Running the demo :
+
+Once the program is compiled, just run "screenart" and enjoy.
+
+The demo runs on its own, you can exit it by pressing any key.
+
+Background :
+
+I had actually written some screen art for full screen mode a long time ago.
+This screen art uses the same algorithms as the old code.
+This is my first attempt at using SDL.
+
+Nathan Stenzel <nathanstenzel@users.sourceforge.net>
+
+web: http://www.nathanstenzel.tripod.com
+
+
+

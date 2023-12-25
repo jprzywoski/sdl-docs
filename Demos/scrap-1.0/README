@@ -1,0 +1,20 @@
+
+Author:  Sam Lantinga	<slouken@devolution.com>
+Date:    9/10/98
+Title:   scrap
+Copying: Freeware
+
+This is a demo of cut-paste within the SDL environment.
+- It works under X11 and Win32, with text between all applications
+  and images between SDL applications.
+
+/* This program demonstrates that it is possible to use SDL along with the
+   native windowing system -- this program gives you access to the clipboard
+
+   - Click the left mouse button in the window to set the clipboard text to
+        "SDL-\n-scrap"
+
+   - Giving the program a BMP file on the command line will cause it to place
+     the image in the clipboard and then display it
+*/
+

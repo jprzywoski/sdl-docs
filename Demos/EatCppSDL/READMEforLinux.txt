@@ -1,0 +1,1 @@
+I have tested this code (In main.cc) to work with my Linux box (Gentoo, 2.6 kernel). As with the Windows code, make sure when you compile it that it is linked with the SDL libs ("-lSDL -lSDLmain -lSDL_ttf") Also make sure that the executable is placed somewhere where the eat_art folder and the Caliban.ttf file are in the same directory, otherwise it will crash.

@@ -1,0 +1,41 @@
+SDL components are at www.libSDL.org
+sdl versions below are versions i used
+to build the system. probably many
+other versions will work too.
+
+
+Required components:
+
+	all:
+	get the waves package:
+	http://home.uninet.ee/~ragnar/waves/
+
+	linux:
+	install SDL 1.2.0
+
+	win:
+	install SDL-1.2.5a-win32.zip 
+
+	crosscompilation on linux for win:
+	install mingw32
+	SDL-devel-1.2.5a-mingw32.tar.gz
+
+Compilation:
+
+	Linux:
+		untar the package
+		make
+	
+	Win:
+		unpack waves.tgz (important file: waves.exe)
+		unpack SDL-1.2.5a-win32.zip (important file: SDL.dll)
+		move important files into same directory.
+
+	Cross-compile on linux for win:
+		untar the package
+		untar SDL-devel-1.2.5a-mingw32.tar.gz
+		inside this is another package: i386-mingw32msvc.tar.gz
+		untar this package too
+		make WIN=/usr/local/i386-mingw32msvc
+			where WIN=path points to location of untarred
+			i386-mingw32msvc.tar.gz

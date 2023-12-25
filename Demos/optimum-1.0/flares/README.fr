@@ -1,0 +1,38 @@
+                 ___________________
+ _______________/  the CTX files    \
+|                                    |
+| Flares                             |
+| depth 16                           |
+|                                    |
+| corTeX / Optimum  11 aout 1998     |
+|                                    |
+|____________________________________|
+
+
+Un effet de flare : Halo + scintillement
+( une sorte de gros flashouilli )
+
+Cet effet n'utilise PAS DE SPRITE :
+Le halo (disque en degradé) est calculé, ainsi que
+les segments dégradés et anti-aliasés.
+
+Le halo est plus ou moins optimum; les segment par contre
+utilisent des grosses divisions, etc...
+
+L'addition de couleur sur les pixels est facile a faire 
+avec une palette 8bits d'un dégradé monochrome, par contre sur
+du 16bits direct c'est plus compliqué (sur du 24 bits c'est juste
+3 fois du 8 bits); alors ici j'utilise un buffer 8bits que je 
+convertis avant d'afficher.
+
+Bon, il est minuit, j'ai encore la page HTML a faire ainsi que
+celle de l'effet suivant (inf plane), hier j'ai pas dormi, et
+demain faut que je me leve pour aller a mon stage... jvous 
+quitte !...
+
+
+
+
+
+
+corTeX / Optimum, pendant son stage d'été...

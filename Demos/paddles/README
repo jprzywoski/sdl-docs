@@ -1,0 +1,12 @@
+This is the Paddles pong clone by Snoolas. It uses the USE codebase which means virtually nothing. It shows SDL for general video
+drawing and SDL_ttf for font rendering, as well as a basic but unorthodox implementation of pong physics. The ball has velocities and
+there is friction that slows it down instead of just stopping abruptly when the keys are let up which makes for a much more realistic
+pong experience, but it also makes for more bugs and stuff. The AI looks awful because it doesn't really understand the physics, but it
+serves its purpose. It also has a few bugs that I know of. One is that when the ball starts going at more than 4 pixels/frame, there is
+a chance that the ball will fly straigt through the paddles. I know exactly what causes it, but if you wanted to fix it at this point
+without making it a dirty hack, you'd have to make major changes. I think. Anyhow, I want to move on to other things. :).
+
+Anyway, this is the Linux version. The Windows version... Is delayed. You can use the inluded shell script to recompile the game. Yeah,
+a shell script. That's how small this is. There is an included binary for x86 Linux, which should satisfy most people. It depends on
+having SDL, SDL_ttf, and SDL_image and their dependencies installed.
+  

@@ -1,0 +1,42 @@
+
+
+Title:		fire
+
+Version:	0.3
+
+Author:		Stephan Uhlmann <su@codewizards.org>
+
+Description:	fire/flames with some other whirling effect.
+
+Requirements:	needs SDL library
+
+This is my first demo with the SDL. I know the effect is a bit old, but at
+least it is fast (about 70% faster than the sdl-ported XFlame).
+
+The following command line parameters are supported:
+ -h : help
+ -v : version
+ -width <value> : width of the screen in pixels
+ -height <value> : height of the screen in pixels
+ -fullscreen : run in fullscreen video mode if possible
+
+Width and height can be any value above 2x2 (I have 3700 fps then! ;-) ).
+
+If the configure script fails to find your SDL library try one of the
+following options recognized by configure:
+  --with-sdl-prefix=PFX   Prefix where SDL is installed (optional)
+  --with-sdl-exec-prefix=PFX Exec prefix where SDL is installed (optional)
+  --disable-sdltest       Do not try to compile and run a test SDL program
+
+
+Have fun,
+Stephan
+
+
+Free software rules the world!
+Fight software patents!
+Save our nature!
+Stop spam!
+Peace!
+
+

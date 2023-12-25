@@ -1,0 +1,10 @@
+
+These are the Fire and Tunnel demos from the PTC library:
+	http://www.cs.ucl.ac.uk/students/c.nentwich/ptc
+
+I just wanted to see how SDL's pixel conversion routines held up to PTC. :)
+
+As a result of some fun comparisons, SDL now uses the MMX and X86 
+assembly routines from the Hermes library, which grew out of brn's 
+and my collaboration. :)
+

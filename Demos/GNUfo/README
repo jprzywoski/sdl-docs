@@ -1,0 +1,70 @@
+GnuFo.
+
+A space invader. 
+
+You need SDL ( http://www.libsdl.org )
+I have include the SDLSprite 
+( http://membres.tripod.fr/edorul/Other.htm )
+
+To compile 
+make
+
+To play : ufo
+
+Have fun
+charles vidal
+
+The file ****************** :
+
+Makefile
+README
+TODO
+
+The Source in .:
+direc_enemi.cpp
+main.cpp
+obj_enemi.cpp
+other.cpp
+starship.cpp
+ufo.h
+
+SDLSprite-1.2:
+Makefile
+SDLSprite.cpp
+SDLSprite.h
+SDLSprite.htm
+SDLSpriteList.cpp
+SDLSpriteList.h
+SDLSpritelist.htm
+
+bmp:
+Voiture.bmp
+alphabet.bmp
+alphabet2.bmp
+bonus.bmp
+chiffre.bmp
+enemimissile.bmp
+explosion.bmp
+levellife.bmp
+mine.bmp
+missile.bmp
+projectile.bmp
+saucer.bmp
+starship.bmp
+starship2.bmp
+ufo.bmp
+
+data:
+gentraj.tcl
+gentraj2.tcl
+gentraj3.tcl
+gentraj4.tcl
+none.txt
+scenario.txt
+scenario.txt.old
+toto.txt
+traject.txt
+traject2.txt
+traject3.txt
+traject4.txt
+traject5.txt

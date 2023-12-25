@@ -1,0 +1,14 @@
+Begin3
+Title:          Fire 
+Version:        0.3
+Entered-date:   18JUL00
+Description:    fire/flames with some other whirling effect.
+Keywords:       demo, fire, flames, effect, SDL
+Author:         su@codewizards.org (Stephan Uhlmann)
+Maintained-by:  su@codewizards.org (Stephan Uhlmann)
+Primary-site:   ftp.codewizards.org /pub/su/demos/
+                38kB fire-0.3.tar.gz
+Home-page:      http://www.codewizards.org/su/demos/
+Platforms:      Linux and other Unices. needs SDL lib >= 1.0.1
+Copying-policy: GPL
+End

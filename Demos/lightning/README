@@ -1,0 +1,16 @@
+
+                       LIGHTNING
+                       ---------
+
+This is my first SDL program.  Me likey.
+
+It simulates lightning with some pixel manipulations and some pretty good sound effects.  Let me know if you like it.
+
+Here are some command like options:
+
+-na	No audio
+-f	Run in fullscreen
+-h	Use a hardware surface
+
+
+- Brian Dolan <bdolan@bu.edu>

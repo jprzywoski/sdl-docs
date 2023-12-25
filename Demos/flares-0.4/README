@@ -1,0 +1,49 @@
+
+
+Title:		flares
+
+Version:	0.4
+
+Author:		Stephan Uhlmann <su@codewizards.org>
+
+Description:	graphics reacting to the music, alpha blending, scopes
+
+Requirements:	needs SDL, SDL_image and SDL_mixer libraries
+
+My second demo with the SDL. It's really good and fairly easy to code for it.
+First time I use music (recently bought a new soundcard) and the SDL_mixer
+library is nice. After so many years MODs still rock :-)
+Thanks to v0x for his nice track "totally wikkid" I use in the demo, but you
+can use your own music if you want (see command line options).
+I need the SDL_image library because I use alpha channel and need to load
+PNGs which are alpha aware.
+
+
+The following command line parameters are supported:
+ -h : help
+ -v : version
+ -window : run in window (not fullscreen)
+ -music <file> : use specified music file (MOD, XM, IT, S3M) instead of
+                 the included one
+ 
+
+If the configure script fails to find your SDL library try one of the
+following options recognized by configure:
+  --with-sdl-prefix=PFX   Prefix where SDL is installed (optional)
+  --with-sdl-exec-prefix=PFX Exec prefix where SDL is installed (optional)
+  --disable-sdltest       Do not try to compile and run a test SDL program
+
+
+
+Have fun,
+Stephan
+
+
+Free software rules the world!
+Fight software patents!
+Save our nature!
+Stop spam!
+Peace!
+
+
+

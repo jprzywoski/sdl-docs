@@ -1,0 +1,10 @@
+1.0 - Thu Jul 01 00:00:00 EEST 2003
+ * Initial version
+
+1.1 - Thu Jul 10 15:16:27 EEST 2003
+ * Lissajous updated
+ * Blossom added
+
+1.2 - Sun Oct  5 16:24:53 EEST 2003
+ * SDL_Quit() for some OS-es
+   Thanks louise@louise.amiga.hu

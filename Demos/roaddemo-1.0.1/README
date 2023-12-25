@@ -1,0 +1,10 @@
+This is my bezier-road demo ported from glut to SDL.
+
+Use the right mouse button to select one of the endpoints or 
+control points, then click and drag with the left mouse
+button to move the point.
+
+This program is released under the GPL version 2, and requires
+SDL version 1.1.0 or higher.
+
+Ray Kelm <rhk@newimage.com>

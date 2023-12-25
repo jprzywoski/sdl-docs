@@ -1,0 +1,17 @@
+Hercules, of course, does not have it's own speakers, and if it did we
+probably wouldn't want to use them.  Scare the hell out of the people in
+the server room, it would, and probably piss off Cowles.
+
+To run the audio test for hercules we'll need to have a network sound
+daemon running on one of the linux machines.  From shell:
+
+	killall esd
+	esd -nobeeps -tcp -public -promiscuous -port 9999 &
+	ssh hercules.cs.uregina.ca
+	cd SDL_plattest
+	make solaris
+	make solaris-test
+
+This should run the SDL demos under solaris, the last of which plays
+awesome music through your local speakers. Be sure to kill the sound 
+daemon once you're done with it.

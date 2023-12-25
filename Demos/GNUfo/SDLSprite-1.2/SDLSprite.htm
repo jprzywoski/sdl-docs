@@ -1,0 +1,387 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>This class contains the data and functions required to display animated sprites</title>
+</head>
+
+<body>
+
+<hr WIDTH="100%" align="center">
+
+<p align="center"><big><strong>SDLSprite 1.2</strong></big></p>
+
+<p align="center"><big><strong>This is the documentation for the SDLSprite class, designed
+for SDL. <br>
+It is based on original documentation of CDXSprite. </strong></big></p>
+
+<hr WIDTH="100%" align="center">
+
+<p>1.0 : Initial library.</p>
+
+<p>1.1 : Sprite's shadow handling with InitShadow, SetShadowOffset, SetShadowValue. It's
+automaticaly drawn by Draw.<br>
+<br>
+1.2 :&nbsp; * Position and velocity variables are now float type (in order to use velocity
+in pixel/sec rather than pixel/frame in the main program).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; * Add m_DelayStart var<br>
+</p>
+
+<hr>
+
+<p>This class contains the data and functions required to display animated sprites. A
+SDLSprite object is created from a pointer to a SDL_Surface object which is used to store
+the bitmap data for the sprite. All the sprite's frames must be the same width and height
+and stored in the same bitmap file. </p>
+
+<p>SDLSprite is based on original sources from CDX and ported and modified for SDL by <a
+href="mailto:edorul@caramailcom">Regis Quercioli</a>. </p>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle"><b><i><font size="+1">Known problems:</font></i></b> 
+
+<ul>
+  <li class="UnderlineTitle"><b>8 bits modes:<br>
+    </b>Transparancy not allowed for the moment with SetColorKey(R, G, B), you must use
+    SetColorKey()<br>
+    Look at the sprite methods for the difference between the two functions...</li>
+  <li class="UnderlineTitle"><strong>Using shadow</strong>:<br>
+    If the sprite's shadow goes out of the display, the sprite himself disapear and only its
+    shadow remains. I don't understand where this problem comes from... If you find please <a
+    href="mailto:edorul@caramail.com">E-Mail me</a> :)</li>
+</ul>
+<div class="UnderlineTitle">
+
+<hr WIDTH="100%">
+</div><div class="UnderlineTitle"></div>
+
+<p align="center"><b><font size="+2">Tutorial</font></b> </p>
+<div class="UnderlineTitle"></div>
+
+<hr WIDTH="100%">
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">Here is a little code tutorial on how to use SDLSprite in your
+projects: </p>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><i><font size="+1">
+Initializing</font></i></b> </p>
+<div class="UnderlineTitle"></div>
+
+<ul>
+  <li><p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; First of all you
+    have to create your SDLSprite object by loading the sprites' BMP picture: </p>
+  </li>
+</ul>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SDLSprite * sprite = new SDLSprite ( &quot;sprites.bmp&quot;, 32, 32, 16); </p>
+
+<blockquote>
+  <div class="UnderlineTitle"><p>new SDLPrite wants to have the filename of the BMP picture,
+  the sprites dimensions (width/height) and the number of sprites.</p>
+  </div>
+</blockquote>
+<div class="UnderlineTitle">
+
+<ul>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you want transparancy:</li>
+</ul>
+</div><div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sprite-&gt;SetColorKey(0, 0, 0); </p>
+
+<blockquote>
+  <div class="UnderlineTitle"><p>SetColorKey wants the R/G/B composants (from 0 to 255) of
+  the transparancy color .</p>
+  </div><div class="UnderlineTitle"></div><p>&nbsp; </p>
+</blockquote>
+<div class="UnderlineTitle">
+
+<ul>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you want alpha channeling:</li>
+</ul>
+</div><div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sprite-&gt;SetAlphaValue(160); </p>
+
+<blockquote>
+  <div class="UnderlineTitle"><p>SetAlphaValue wants the apha value (0 totaly opaque and 255
+  totaly transparent)</p>
+  </div>
+</blockquote>
+<div class="UnderlineTitle">
+
+<ul>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If&nbsp; you want to set some sprite's
+    variables you can do it directly. Example :</li>
+</ul>
+</div><div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sprite-&gt;m_NbFrame = 5; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sprite-&gt;m_DelayStart =
+SDL_GetTicks();</p>
+
+<blockquote>
+  <div class="UnderlineTitle"><p>The first one sets the total number of frames for a
+  mouvement to 5. (Animations are not handled automaticaly, you must handle it by yourself
+  using SetDelay, SetFrame, m_NbFrame, m_NbTotFrame...) and the other one sets sprite's
+  animation timing to the actual system tick.</p>
+  </div>
+</blockquote>
+<div class="UnderlineTitle"><div class="UnderlineTitle">
+
+<ul>
+  <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you want to use sprite's shadow:</li>
+</ul>
+</div><div class="UnderlineTitle">
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sprite-&gt;InitShadow(6, 6, 125, 70); </p>
+</div></div>
+
+<blockquote>
+  <div class="UnderlineTitle"><p>Where 6,6 are the shadow offset in the relation to the
+  sprite, 125 is the shadow color ((0=black, 255=white) and 70 is the alpha value of the
+  shodow (0=opaque, 255=totaly transparent)</p>
+  </div>
+</blockquote>
+<div class="UnderlineTitle">
+
+<p>&nbsp;&nbsp; <b><i><font size="+1">Drawing</font></i></b></p>
+</div><div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Here are the
+functions needed to draw the sprites. </p>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can move the
+sprite at the desired pixel position: sprite-&gt;SetPos( 155, 250 ); </p>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can set is X/Y
+velocity: sprite-&gt;SetVel( 8, 8);&nbsp;&nbsp;&nbsp;&nbsp; (velocity is given in
+pixels/frame) </p>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can set a
+new shadow offset: sprite-&gt;SetShadowOffset( 8, 8);&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can set a new shadow color and alpha
+values: sprite-&gt;SetShadowValue(color, alpha); </p>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can set many other
+variables, for example: sprite-&gt;SetFrame (4); </p>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Then, you can
+draw the sprite: </p>
+<div class="UnderlineTitle"></div>
+
+<p class="UnderlineTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sprite-&gt;Draw (screen, 10, 30);&nbsp;&nbsp;&nbsp;&nbsp; (shadow is draw automaticaly)</p>
+
+<blockquote>
+  <div class="UnderlineTitle"><p>Where screen is the SDL_Surface where you want to put the
+  sprite, and 10, 30 is the offset of the map scrolling (if no scrolling is made just put 0,
+  0)</p>
+  </div>
+</blockquote>
+<div class="UnderlineTitle">
+
+<p>&nbsp;&nbsp;&nbsp;</p>
+</div><div class="UnderlineTitle">
+
+<hr WIDTH="100%">
+</div><div class="UnderlineTitle"></div>
+
+<p align="center"><b><font size="+2">Sprite Methods</font></b> </p>
+<div class="UnderlineTitle"></div>
+
+<hr WIDTH="100%">
+
+<dl>
+  <dt class="Code"><b><i><font size="+1">Constructors/Destructors:</font></i></b></dt>
+  <dt class="Code"><b>SDLSprite</b>() ;</dt>
+  <dd>Default constructor.</dd>
+  <dt class="Code"><b>SDLSprite</b>(SDLSprite* <b>pTile</b> ) ;</dt>
+  <dd>Creates a sprite object from a pointer to a SDLSprite object holding the sprite's bitmap
+    data.</dd>
+  <dt class="Code"><b>SDLSprite</b>(const char* <b>Filename</b> ,int <b>w</b> ,int <b>h</b>
+    ,int <b>num</b> ) ;</dt>
+  <dd>Creates the sprite object. Requires a pointer to the name of the bitmap in which the
+    sprite is stored. The w and h parameters refer to the width and height of a single frame
+    of the sprite and the num parameter refers to the total number of frames in the bitmap
+    file.</dd>
+  <dt class="Code">virtual <b>~SDLSprite</b>() ;</dt>
+  <dd>Destroys the surface and frees the memory.</dd>
+</dl>
+<div class="UnderlineTitle">
+
+<p>&nbsp; <br>
+<b><i><font size="+1">Operations:</font></i></b></p>
+</div>
+
+<dl>
+  <dt class="Code">void <b>Draw</b>(SDLSurface* <b>lpSDLS</b> ,DWORD <b>ScrnWorldX</b> ,DWORD <b>ScrnWorldY</b>
+    ) ;</dt>
+  <dd>Staging area for all blit types.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetAlphaValue</b>(WORD <b>Shade</b> ) ;</dt>
+  <dd>Set the sprites' Alpha value (0 totaly opaque and 255 totaly transparent). </dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetColorKey</b>(void) ;</dt>
+  <dd>The transparancy color key is the color of the top-left pixel of the BMP sprites'
+    picture.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetColorKey</b>(Uint8<b> R</b>, Uint8 <b>G</b>, Uint8 <b>B</b> ) ;</dt>
+  <dd>&nbsp;Set the transparancy color key.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetDelay</b>(int <b>Delay</b> ) ;</dt>
+  <dd>&nbsp;Set the delay between&nbsp; two animation frames of a sprite in ms.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetFrame</b>(int <b>Frame</b> ) ;</dt>
+  <dd>&nbsp;Set the current sprite's frame.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetPos</b>(int <b>pX</b> ,int <b>pY</b> ) ;</dt>
+  <dd>&nbsp;Set the sprite's X/Y pixels position.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetState</b>(int <b>State</b> ) ;</dt>
+  <dd>&nbsp;Set the sprite's user defined state (jumping, walking, ...)</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetType</b>(int <b>Type</b> ) ;</dt>
+  <dd>&nbsp;Set the sprite's user defined type (monster, health, ...)</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">void <b>SetVel</b>(int <b>vX</b> ,int <b>vY</b> ) ;</dt>
+  <dd>&nbsp;Set the X/Y pixels/frame sprite's velocity.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">BOOL <b>SpriteHit</b>(SDLSprite* <b>pSprite</b> ) ;</dt>
+  <dd>Checks for collisions between sprites. Returns TRUE if any part of Sprite overlaps with
+    any part of the source sprite.</dd>
+  <dd>&nbsp;</dd>
+  <dt class="Code">BOOL <b>SpriteHitPixel</b>(SDLSprite* <b>pSprite</b> ) ;</dt>
+  <dd>Checks for collisions between sprites. Returns TRUE if any non-colorkey part of Sprite
+    overlaps with non-colorkey part of the source sprite.</dd>
+</dl>
+
+<p>SDL_bool <strong>InitShadow</strong>(int <strong>OffX</strong>, int <strong>OffY</strong>,
+Uint8 <strong>Shade</strong>, Uint32 <strong>Alpha</strong>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Init the sprite's shadow offsets,
+color and alpha value.<br>
+<br>
+void <strong>SetShadowOffset</strong>(int <strong>dx,</strong> int <strong>dy</strong>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Change the sprite's shadow offsets.<br>
+<br>
+void <strong>SetShadowValue</strong>(Uint8 <strong>Shade</strong>, Uint32 <strong>Alpha</strong>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Change the sprite's shadow color
+and alpha value.</p>
+<div class="UnderlineTitle">
+
+<p>void <b>SetObjective</b>(int <b>ObjX</b>, int <b>ObjY</b>)
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(used for a mouse-click based mouvement) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sets the
+sprite's point to reach. </p>
+
+<p>float <b>F_Direction</b>(void)
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (used for
+a mouse-click based mouvement) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calculates
+the sprite's facing&nbsp; in function of its position and objective. </p>
+
+<p>void <b>Orientation</b>(float <b>Dir</b>, short int <b>NbPos</b>)
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (used for
+a mouse-click based mouvement) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Calculates
+the sprite's frame to use for a certain facing (frame 0 is top facing, and then rotate to
+right).&nbsp; <b>NbPos</b> is the numbers of pisitions for the sprite's orientation. </p>
+
+<p>void <b>Mvt</b>(short int <b>NbPos</b> = 0)
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (used for
+a mouse-click based mouvement) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Moves the
+sprite (with its own velocity) toward its objective. <b>NbPos</b> is the numbers of
+pisitions for the sprite's orientation. </p>
+
+<p>SDL_bool <b>End_Mvt</b>(SDLSprite* <b>Sprite</b>)
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (used for
+a mouse-click based mouvement) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Checks if
+the sprite's arrived to its destination. Returns TRUE if sprite's arrived. </p>
+
+<p><b><i><font size="+1">Data Members:</font></i></b></p>
+</div>
+
+<dl>
+  <dt><u>Public:</u></dt>
+  <dd><br>
+    float&nbsp; <b>m_Angle</b>&nbsp; - The sprite's angle of rotation (in radian). <br>
+    int <b>m_Delay</b>&nbsp; - Used for game timing, the time till the next frame. <br>
+    Uint32 <strong>m_DelayStart</strong> - Begining of the sprite's animation timing (take a
+    look at SDLSprite_Example4)<br>
+    int <b>m_Frame</b>&nbsp; - The current frame. <br>
+    int <b>m_NbFrame</b> - Number frames for an animation (for a mouvement or action or what
+    you want). </dd>
+  <dd>int <strong>m_NbTotFrame</strong> - Total number of different frames for this sprite<br>
+    SDLSprite* <b>m_Next</b>&nbsp; - A SDLSprite pointer to the next sprite in a
+    SDLSpriteList. <br>
+    SDLSprite* <b>m_Prev</b>&nbsp; - A SDLSprite pointer to the previous sprite in a
+    SDLSpriteList. <br>
+    float <b>m_PosX</b>&nbsp; - The sprite's X position. <br>
+    float <b>m_PosY</b>&nbsp; - The sprite's Y position. <br>
+    float <b>m_PosZ</b>&nbsp; - The sprite's Z position. <br>
+    int <b>m_State</b> - User defined state.&nbsp;&nbsp; Walking,&nbsp;&nbsp; jumping, etc. <br>
+    int <b>m_Type</b> - User defined type.&nbsp; Monster, Health, etc. <br>
+    SDL_Surface* <b>m_Surface</b> - A SDL_Surface pointer to the sprite's bitmap data. <br>
+    BOOL <b>m_TileCreated</b> <br>
+    int <b>m_Type</b>&nbsp; - User defined type. Health, weapon, etc. <br>
+    float <b>m_VelX</b>- The sprite's X velocity (in pixels/sec). <br>
+    float <b>m_VelY</b>&nbsp; - The sprite's Y velocity (in pixels/sec). <br>
+    float <b>m_VelR</b>&nbsp; - The sprite's Radial velocity (in pixels/sec).</dd>
+</dl>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int <strong>m_ShadowOffsetX</strong>
+- Shadow offset from sprite<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int <strong>m_ShadowOffsetY</strong>
+- Shadow offset from sprite<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Uint32 <strong>m_ShadowValue</strong>
+- Shadow value (0=black, 255=white)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Uint32 <strong>m_ShadowAlpha</strong>
+- Shadow alpha value (0=opaque, 255=totaly transparent)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Uint32 <strong>m_AlphaValue</strong>
+- Sprite Alpha value (0=opaque, 255=totaly transparent)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Uint32 <strong>m_ColorKey</strong>
+- Transparent color key<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SDL_Surface<strong>* m_Surface</strong>
+-&nbsp; the surface holding the sprite's bitmap picture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SDL_Surface<strong>* m_Shadow</strong>
+- the surface holding the sprite's shadow picture (created by InitShadow)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int <strong>m_PixelWidth</strong> -
+Width of the bitmap picture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int <strong>m_PixelHeight</strong>
+- Height of the bitmap picture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int <strong>m_BlockWidth</strong> -
+The width of one sprite tile, in pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int <strong>m_BlockHeight</strong>
+- The height of one sprite tile, in pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int <strong>m_BlockNum</strong> -
+The number of sprite tiles in the bitmap file<br>
+</p>
+
+<p><br>
+</p>
+
+<hr>
+
+<p><br>
+&nbsp; <br>
+&nbsp; </p>
+</body>
+</html>

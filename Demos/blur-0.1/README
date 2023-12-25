@@ -1,0 +1,48 @@
+
+
+Title:          blur
+
+Version:        0.1
+
+Author:         Stephan Uhlmann <su@codewizards.org>
+
+Description:    demo with some blurred "wire netted" 3d objects, spectrum analyzer
+                (fft) and scopes for music, text effect
+
+Requirements:   needs SDL, SDL_image and SDL_mixer libraries
+
+Yet another demo done with the SDL ;-) I don't think I'll ever go back to SVGALib.
+It features some 3d stuff I ported from my old pascal sources. I also has music.
+Apart from the compulsory scopes there is a spectrum analyzer effect. I thank
+Philip VanBaren for his nice FFT (Fast Fourier Transformation) algorithm. I hope it's
+ok when I use it. I took the files from a program called "wav2fft" and there was no
+statement about the license there. But I found another program called "freq"/"xfreq"
+which included nearly the same files and they were GPLed there.
+And this demo is my first one which has a "message" ;-)
+
+
+The following command line parameters are supported:
+ -h : help
+ -v : version
+ -window : run in window (not fullscreen)
+ -music <file> : use specified music file (MOD, XM, IT, S3M) instead of
+                 the included one
+
+
+If the configure script fails to find your SDL library try one of the
+following options recognized by configure:
+  --with-sdl-prefix=PFX   Prefix where SDL is installed (optional)
+  --with-sdl-exec-prefix=PFX Exec prefix where SDL is installed (optional)
+  --disable-sdltest       Do not try to compile and run a test SDL program
+
+
+
+Have fun,
+Stephan
+
+
+Free software rules the world!
+Fight software patents!
+Save our nature!
+Stop spam!
+Peace!

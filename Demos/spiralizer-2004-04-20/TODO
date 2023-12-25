@@ -1,0 +1,2 @@
+* Possible maximum framerate restriction from command line
+* --reset=SEC: Randomize(palette & angle) every SEC seconds

@@ -1,0 +1,9 @@
+v 0.3
+ - code cleanups
+
+v 0.2
+ - configure looks for SDL library
+ - command line options
+
+v 0.1
+ - first version

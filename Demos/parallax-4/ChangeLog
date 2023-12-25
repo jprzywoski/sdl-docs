@@ -1,0 +1,103 @@
+David Olofson - "Parallax Scrolling IV - Overdraw Elimination +"
+
+	+ Implemented merging of horizontal runs.
+
+	+ Removed the -p option, as it has no effect.
+	  (It just sets the default; "use planets".)
+
+
+David Olofson - "Parallax Scrolling III - Overdraw Elimination"
+
+	+ Added GPL license notice and "COPYING".
+
+	+ Wrote makefile.
+
+	+ Split main.c into
+		parallax3.c
+		parallax3.h
+		HISTORY
+
+	+ Added clip rect argument to layer_render().
+
+	+ Arranged parallax layers in a linked list.
+
+	+ Shortened tiled_layer_t to layer_t, and renamed
+	  the tl_* methods to layer_*.
+
+	+ Made layer_render() do a recursive call to the
+	  underlying layer when it hits a transparent tile.
+
+	+ layer_link() now tells layer_animate() what to do,
+	  rather than requiring the application to call
+	  layer_link() instead of layer_animate(). The same
+	  for layer_limit_bounce();
+
+	+ The opaque tiles are now rendered from a surface
+	  that's not RLE accelerated. This should speed up
+	  clipping for those tiles slightly.
+
+	+ Added recursion and rendering statistics.
+
+	+ Added options:
+		-l<n>	Use <n> layers (default = 7)
+		-b	"Bounce-around" mode
+		-w	Wrap maps instead of bouncing
+		-a<n>	Alpha for non-opaque tiles = <n>
+		-v<n>	Verbosity level <n> (default = 0)
+		-p	Use planet layers (default)
+		-np	Don't use planet layers
+
+	+ Arrows + shift moves and scales root clip rect.
+
+
+David Olofson - "Parallax Scrolling Example 2"
+
+	+ Created C style "class" tiled_layer_t.
+
+	+ " " in the map == no tile.
+
+	+ Added a third parallax layer with it's own map.
+
+	+ The background got a map.
+
+	+ Removed the confusing initialization of the
+	  destination SDL_Rect size in draw_tile()...
+
+	+ Added vertical scrolling; map size 16x16.
+
+	+ Corrected my bounce code! (Moving back to the
+	  previous position iswrong*. "Mirroring" over
+	  the limit is the correct way. Silly me... :-)
+
+	+ Tweaked the graphics a bit. The planet is now
+	  circular rather than 320x200 ratio compensated.
+
+	+ Rewrote the rendering loop in a (hopefully)
+	  more comprehensible way.
+
+	+ Exit handled more properly.
+
+	+ Command line options added:
+		-f	Fullscreen
+		-d	Double buffer
+		-<n>	Depth = <n> bits
+
+
+Randi J. Relander - "Parallax Scrolling Example"
+
+	+ Added simple 2-layer parallax scrolling with
+	  layer velocities expressed in pixels/sec.
+
+
+David Olofson - "Tiled Map Scrolling Example"
+
+	+ Added a simple map, and replaced the image with
+	  a tile palette. Graphics borrowed from David's
+	  (so far) unreleased game "Project Spitfire".
+
+	+ Fixed atexit() bug.
+
+
+Nghia - "Simple Scrolling Example"
+
+	+ Basic continuous scrolling of an image.

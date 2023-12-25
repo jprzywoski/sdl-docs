@@ -1,0 +1,59 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="writer" content="Patrick Kooman - patrick@active8.nl">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="title" content="Fading with Simple DirectMedia Layer (SDL)">
+<meta name="description" content="In 10 steps 2Dgame will guide you to a 2-dimensional parrallax-scroller with realistic physics, sound and music, events, enemies and weapons, all visualized in 640x480x16! The source-code which can be downloaded, can be used according to the General Public Licence.">
+<meta name="keywords" content="Simple DirectMedia Layer, SDL, fading, tutorial, programming">
+<meta name="reply-to" content="patrick@2dgame-tutorial.com">
+<meta name="robots" content="index, nofollow">
+
+<title>SDL - Fading</title>
+</head>
+
+<body>
+
+<p><font face="Verdana">
+<h1>Fading</h1>
+
+This little tutorial is about fading. This technique can be used to slowly let an image disappear from screen,
+and most people (including myself) like it a lot because it is such a
+smooth effect. The regular apprauch is that each frame during the fade, all
+RGB values of the pixels get decreased by a certain amount, which makes the
+screen become more and more dark.<br><br>
+
+There are two disadvantages to this apprauch:
+<ul>
+<li>Pixel-operations are slow, especcialy when done in video memory</li>
+<li>Pixel-operations depend on the bit depth. Each bit-dept (8, 15/16, 24,
+32) needs it's own implementation</li>
+</ul>
+In this tutorial, I'd like to show another way to make a fade:
+alphablending. In stead of making the screen-surface darker, we go blend a
+black surface over it. If we slowly increase the aplha value from 0 (not visible
+) to 255 (fully visible), the screen seems to get darker and darker,
+simulating a fade.<br><br>
+
+When this technique is beeing used on a modern videocard, where
+alphablending is hardware accelerated, you have the fade almost for free,
+and for each bit-dept. :-)<br><br>
+
+Below you can download both the Win32 and Linux version of the little sample program.
+They both include the sourcecode and the executable. To re-compile, you need the <a href="
+http://www.libsdl.org">Simple DirectMedia Layer</a>, a cross-platform
+game API.<br>
+
+<ul>
+<li>Download the <a href="fading.zip">Windows</a> version.</li>
+<li>Download the <a href="fading.tgz">Linux</a> version. (Thanks to Jean-Christophe Duberga!)</li>
+</ul><br>
+
+To contact me, just send an <a href="mailto:patrick@2dgame-tutorial.com">email</a>.
+</font></p>
+
+</body>
+
+</html>

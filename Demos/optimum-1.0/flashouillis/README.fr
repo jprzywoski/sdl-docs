@@ -1,0 +1,34 @@
+                  ___________________
+ ________________/  the CTX files    \
+|                                    |
+| Flashouillis                       |
+| depth 16 et 24                     |
+|                                    |
+| corTeX / Optimum  17 juin 1998     |
+|                                    |
+|____________________________________|
+
+
+
+Ptit effet rigolo et pas phenomenal au niveau algorithmique..
+
+c'est un affichage d'une nuee de pixels en mode addition avec la
+couleur de fond .
+
+La vitesse n'est pas fantastique, tout est en C avec un appel
+de fonction pour chacun des 5000 pixels affichables...
+
+
+Histoire de dire que je glande pas totalement, je livre un ptit
+bout de la future optilib (le programme s'en sert ici pour faire une
+conversion de l'image background 16bpp si le display est en 24bpp)
+(et puis ca montre un peu d'assembleur pour Linux, ca fait pas de mal)
+(les routines ultra-optimisees ne seront livrees que dans l'optilib
+finale ;) )
+
+
+
+
+logout
+
+

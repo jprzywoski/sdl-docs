@@ -1,0 +1,7 @@
+
+This is a port of Nathan Strong's stars application -- a rotating starfield
+
+Type 'make' to build it for SDL
+
+See the file stars.c for more information.
+

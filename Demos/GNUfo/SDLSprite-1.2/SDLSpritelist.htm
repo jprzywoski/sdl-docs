@@ -1,0 +1,170 @@
+<html>
+
+<head>
+<title>Sprite lists are used to store sprites in a dynamic fashion</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body>
+
+<hr>
+
+<p align="center"><strong><big>SDLSpriteList 1.1</big></strong></p>
+
+<p align="center"><strong><big>This is the documentation for the SDLSpriteList class,
+designed for SDL. <br>
+It is based on original documentation of CDXSpriteList. </big></strong></p>
+
+<hr>
+
+<p>1.0 : Initial library.</p>
+
+<p>1.1 : Add DelayStart as parametre in AddSprite function</p>
+
+<hr>
+
+<p class="LargeText">Sprite lists are used to store sprites in a dynamic fashion. A
+SDLSpriteList is a linked list of SDLSprite objects, which can be added and removed at
+run-time.</p>
+
+<p class="LargeText">&nbsp;</p>
+
+<p>SDLSprite is based on original sources from CDX and ported and modified for SDL by <a
+href="mailto:edorul@caramailcom">Regis Quercioli</a>. </p>
+<div class="UnderlineTitle">
+
+<p class="UnderlineTitle"><b><i><font size="+1">Known problems:</font></i></b> </p>
+</div>
+
+<p><b>None.<br>
+</b></p>
+
+<hr>
+
+<p align="center"><strong><big><big>Tutorial</big></big></strong></p>
+
+<hr>
+
+<p>Here is a little code tutorial on how to use SDLSprite in your projects: </p>
+
+<p><big><em><strong>Initializing:</strong></em></big></p>
+
+<p>For each SpriteList you want :</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SDLSpriteList&nbsp; projectile =
+new SDLSpriteList();</p>
+
+<p>Add a sprite to the list :</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; projectile.AddSprite(bullet, 0,
+128, 112, 4, -4, 0, 0, 100, SDL_GetTicks());</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It adds the bullet sprite
+(already created with (for example): SDLSprite *bullet = new
+SDLSprite(&quot;bullet.bmp&quot;, 16, 16, 3);) with type 0, at pos X,Y : 128,112, at
+velocity X,Y : 4,-4, with State and Frame 0, with a delay between two sprite animations of
+100ms and (at last) the begining of the time count for this sprite. You can add in a
+single SpriteList as many different sprites as you need (i.e. :
+projectile.AddSprite(bullet); projectile.AddSprite(arrow); ...)</p>
+
+<p><em><strong><big>Using the list:</big></strong></em></p>
+
+<p>LOOPING THE LIST: When using a sprite list you will often need to loop through the list
+and perform operations on each of the sprites in the list, such as updating their
+positions. The code below shows how to loop through a CDXSpriteList:<br>
+<br>
+SDLSprite* Node;<br>
+<br>
+for(Node = projectile.Next(); Node != projectile.List(); Node = Node-&gt;m_Next)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Node-&gt;m_PosX += Node-&gt;m_VelX;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Node-&gt;m_PosY += Node-&gt;m_VelY;<br>
+}<br>
+<br>
+<em><strong><big>Suppress a sprite in the list:</big></strong></em></p>
+
+<p>Notice that if you intend to remove sprites from the list as you update them you must
+save a pointer to the next sprite in the list to prevent the loop from becoming lost.
+Example :<br>
+</p>
+
+<p>SDLSprite* Node;<br>
+SDLSprite* Save;<br>
+<br>
+for(Node = projectile.Next(); Node != projectile.List(); Node = Node-&gt;m_Next)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (Node-&gt;m_Type == DEAD)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Save = Node-&gt;Next();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+projectile.DelSprite(Node);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Node = Save;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <sup>}</sup><br>
+}<br>
+</p>
+
+<hr>
+
+<p align="center"><strong><big><big>SpriteList methods</big></big></strong></p>
+
+<hr>
+
+<p><em><strong><big>Constructors/Destructors :</big></strong></em></p>
+
+<p><span class="Code">#include &quot;SDLSprite.h&quot;<br>
+class SDLSpriteList;</span> 
+
+<dl>
+  <dt class="Code"><b>SDLSpriteList</b>() ; </dt>
+  <dd>Default constructor. </dd>
+  <dt class="Code"><b>~SDLSpriteList</b>() ; </dt>
+  <dd>Default constructor. </dd>
+</dl>
+
+<p class="UnderlineTitle"><big><em><strong>Operations: </strong></em></big>
+
+<dl>
+  <dt><span class="Code">SDLSprite* <b>AddSprite</b>(SDLSprite* <b>pTile</b> ,</span> </dt>
+  <dd><span class="Code">int <b>Type&nbsp; = 0</b>,<br>
+    int <b>PosX&nbsp; = 0</b>,<br>
+    int <b>PosY&nbsp; = 0</b>,<br>
+    int <b>VelX&nbsp; = 0</b>,<br>
+    int <b>VelY&nbsp; = 0</b>,<br>
+    int <b>State&nbsp; = 0</b>,<br>
+    int <b>Frame&nbsp; = 0</b>,<br>
+    int <b>Delay&nbsp; = 0</b>,</span></dd>
+  <dd><span class="Code">int <strong>DelayStart = 0</strong>) ;</span> </dd>
+  <dt>&nbsp; </dt>
+  <dd>&nbsp;Adds a sprite to the sprite list. Only a pointer to a SDLSprite object is
+    required, however you can also set up the sprite as required. </dd>
+  <dt>&nbsp;</dt>
+  <dt class="Code">void <b>DelSprite</b>(SDLSprite* <b>pNode</b> ) ; </dt>
+  <dd>&nbsp;Removes a sprite from the list. </dd>
+  <dt>&nbsp;</dt>
+  <dt class="Code">void <b>Draw</b>(SDLSurface* <b>lpSDLS</b> ,&nbsp;DWORD <b>ScrnWorldX</b>
+    ,&nbsp;DWORD <b>ScrnWorldY</b> ,&nbsp;WORD <b>BltType</b> ) ; </dt>
+  <dd>Draws all the sprites in the list to the surface pointed to by lpDDS. </dd>
+  <dt>&nbsp;</dt>
+  <dt><span class="Code">SDLSprite* <b>List</b>() ;</span> </dt>
+  <dd>&nbsp;Gives the pointer of the list.</dd>
+  <dd>&nbsp;</dd>
+  <dt><span class="Code">SDLSprite* <b>Next</b>() ;</span> </dt>
+  <dd>&nbsp;Gets the next sprite in the list.</dd>
+  <dt>&nbsp;</dt>
+  <dt class="Code">SDLSprite* <b>Prev</b>() ;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gets the previous sprite in
+    the list. </dt>
+</dl>
+
+<p class="UnderlineTitle"><big><em><strong>Data Members: </strong></em></big>
+
+<dl>
+  <dt><u>Public: </u></dt>
+  <dd><span class="Code">SDLSprite <b>m_List</b></span>&nbsp; - The top of the list.<br>
+    <span class="Code">int <b>m_nSprites</b></span>&nbsp; - The number of sprites in the list.</dd>
+</dl>
+</body>
+</html>

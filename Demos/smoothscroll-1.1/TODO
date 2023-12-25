@@ -1,0 +1,58 @@
+For future versions...
+----------------------
+
+* Improved edge handling
+	As you'll realize if you try to create some real
+	game levels with this engine, getting the tile
+	edges right at all times is rather cumbersome.
+	It's also rather inefficient with all the "dummy"
+	tiles you need to get "border pixels" in the
+	right places.
+
+	A simple improvement would be to add a border of
+	one pixel around each tile (either shrinking the
+	tiles to 30x30, or adding space in the palette,
+	making them 34x34 total), and have the artist
+	explicitly draw the border pixels for each tile.
+	This avoids the dummy tiles.
+
+	The next step would be automating the generation
+	of border pixels. The engine would have to look
+	at the map to find all combinations. Well designed
+	maps with only "natural" combinations of tiles
+	should generate few, if any extra tiles - the
+	engine would basically just fill in the border
+	pixels.
+
+* Parallax scrolling
+	Nothing much to this at all; the only thing to
+	keep in mind is that RGBA textures must be used
+	for any tiles bordering to transparent areas in
+	the overlay layers. (Otherwise the edges will
+	flicker!) This does not, however, mean that *all*
+	tiles used in overlay layers must be RGBA! Tiles
+	that are entirely surrounded by opaque pixels
+	may of course be totally opaque without causing
+	trouble.
+
+* Alternative method
+	Instead of rendering the static tile images
+	directly, one could make use of an array of
+	procedural textures, acting as a tiled frame
+	buffer. These tiles would be rather large, and
+	updated part by part, as needed when the screen
+	is scrolled. Tiles that are scrolled off the
+	edges are recycled.
+
+	There are two obvious advantages with this method:
+
+		1) Border pixels can be generated directly
+		   from the map very easily.
+
+		2) It's easy to implement advanced
+		   software rendering on top of this.
+
+	One minor problem as well; this method can't
+	really take advantage of the fact that many tiles
+	in parallax scrolling layers can be RGB rather
+	than RGBA, as noted under "Parallax scrolling".

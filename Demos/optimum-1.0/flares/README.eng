@@ -1,0 +1,31 @@
+                 ___________________
+ _______________/  the CTX files    \
+|                                    |
+| Flares                             |
+| depth 16                           |
+|                                    |
+| corTeX / Optimum  11 aug. 1998     |
+|                                    |
+|____________________________________|
+
+
+A flare effect: Halo + scintillement
+( sort of a big 'flashouilli'( see the flashouilli page) )
+
+This effect DOESNT USE SPRITE:
+the halo (shaded disc) is calculated, as the shaded
+and anti-aliased segments.
+
+Halo is more or less optimum; segments, however, use many DIVs etc..
+
+Adds of color on pixels is easy to do with a monochrome shaded
+8bits palette, but its more complicated with 16bpp (for 24bpp its
+only 3 times 8bits); so here I use a 8bits buffer that I convert
+before displaying.
+
+Ok, its midnight, I've still the HTML page to do, the one of the
+next effect (inf plane), yesterday I didnt sleep, and tomorrow
+i must awake to go to my stage... leaving !..
+
+
+corTeX / Optimum, during his summer stage...

@@ -1,0 +1,14 @@
+Begin3
+Title:          Flares 
+Version:        0.4
+Entered-date:   19FEB01
+Description:    graphics reacting to the music, alpha blending, scopes
+Keywords:       demo, effect, SDL, linux, flares, scope, music
+Author:         Stephan Uhlmann <su@codewizards.org> 
+Maintained-by:  Stephan Uhlmann <su@codewizards.org> 
+Primary-site:   ftp.codewizards.org /pub/su/demos/	
+                291kB flares-0.4.tar.gz
+Home-page:      http://www.codewizards.org/su/demos/
+Platforms:      Linux and other Unices
+Copying-policy: GNU Public License
+End

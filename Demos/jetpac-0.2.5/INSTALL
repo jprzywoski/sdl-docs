@@ -1,0 +1,17 @@
+JETPAC - THE RETURN
+
+Compilation notes:
+
+Simply type 'make' and the program should build automatically.  You will need
+the SDL library from www.libsdl.org but if you use a recent version of Mandrake
+or Red Hat it should already be installed and the makefile should work fine.
+
+Installation notes:
+
+Once the program has been 'made' change to root user by typing the following:
+	su root
+You will be prompted for a password.  Type in the root password.
+Next type:
+	make install
+This will setup the directories and install the game.
+Next, type 'jetpac' to play.

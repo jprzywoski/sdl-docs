@@ -1,0 +1,6 @@
+# file | time when appear | type of enemi | power | life of enemi | nb enemi by wague | deltax | deltay
+data/traject.txt 50 UFO 10 1 3 0 10
+data/traject2.txt 200 UFO 10 1 3 0 0
+data/trajectsin3.txt 200 UFO 10 1 3 0 0
+data/trajectsin4.txt 200 SAUCER 10 1 4 0 -30
+data/trajectsin5.txt 200 UFO 10 1 5 0 0

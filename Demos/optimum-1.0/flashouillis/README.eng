@@ -1,0 +1,32 @@
+                  ___________________
+ ________________/  the CTX files    \
+|                                    |
+| Flashouyies                        |
+| depth 16 & 24                      |
+|                                    |
+| corTeX / Optimum  17 june 1998     |
+|                                    |
+|____________________________________|
+
+
+
+little funny FX not very complicated
+
+It's a flock of pixels moving above a background (additive mode)
+
+Speed is not fantastic, all is writen in C with one function call 
+for each of the 5000 pixels...
+
+As a matter to say that I still work a little, here is also a 
+excerpt of the future Optilib (this program uses it to convert the
+16bpp background image if the display is in 24bpp)
+(and this shows a little of assembly for Linux)
+(The ultra-optimized fonctions will be available only in the final 
+version of the Optilib ;) ) 
+
+
+
+
+logout
+
+

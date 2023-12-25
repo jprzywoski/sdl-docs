@@ -1,0 +1,9 @@
+:) Fixed.
+:| A quick fix.
+:( No fixed.
+
+:) win32        Data loading problem
+:) all          Last color fixed
+:| win32        Getopt in win32
+:( all          Looping mode not correct
+:( all          Last byte pixel (haven't got a animation with a last byte pixel)

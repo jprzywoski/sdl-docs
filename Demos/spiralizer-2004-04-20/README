@@ -1,0 +1,24 @@
+Spiralizer is a simple 'gillion-lines-on-screen' spiral demo,
+written in C++ using SDL. It is free(as in freedom) software,
+and is licensed under the GNU General Public License(see
+LICENSE for details).
+
+This version works similar to screensavers, in the sence that
+once the program is started it is not interactive; pressing
+any button on the mouse or keyboard will exit the program.
+
+Some additional features can be accessed using command line
+parameters, see 'spiralizer --help' for details.
+
+This program uses a 256 color depth screen and a BMP image
+to load the palette from. Each row in this image represents
+one palette, of which the 256 left-most pixels are read into
+a palette. If a palette number is not provided in the command
+line arguments, it will be randomly selected.
+
+Even I(w00t!?) make occasional mistakes in the code, so comments
+and suggestions are welcome as long as they remain proper. Please
+post them to the spiralizer project page:
+	http://sourceforge.net/projects/spiralizer
+or I can be e-mailed directly:
+	lupedi@yahoo.com

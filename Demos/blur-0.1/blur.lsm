@@ -1,0 +1,14 @@
+Begin3
+Title:          Blur 
+Version:        0.1
+Entered-date:   28APR01
+Description:    demo, blur, fft, scopes, SDL,
+Keywords:        
+Author:         Stephan Uhlmann <su@codewizards.org> 
+Maintained-by:  Stephan Uhlmann <su@codewizards.org> 
+Primary-site:   	
+Home-page:      http://www.codewizards.org/su/demos/
+Original-site:  
+Platforms:       Linux and other Unices
+Copying-policy: GNU Public License
+End

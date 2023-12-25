@@ -1,0 +1,21 @@
+Due to the increased popularity of my little game, it seems I now have to write some documentation *shudder*.
+
+Ok, the installation is still simple, just extract the .tar.bz2 and run make. Be sure to have SDL-devel, SDL_image-devel and SDL_mixer-devel installed. After the compiling is finished, you can start the game with ./SDLInvaders.
+
+To play the game, you need the following keys:
+q: quit
+<-: move your ship left
+->: move your ship right
+space: fire
+p: (un)pause
+
+If you have special weapons (you get them by shooting the special alien on top), they are shown on top as R, S or B.
+R is the rocket, it just flies straight ahead and destroys all (normal) aliens on it's way. It is fired by pressing the "r" key.
+S is a seekrocket. It randomly chooses a (normal) alien as target and destroys it. It is fired by using "s".
+B is a bomb. It just flies ahead and, when hitting an alien, it does not only destroy this (normal) alien but all (normal) aliens around as well. It's fired by the "b" key.
+
+You can choose your weapon (if you got more than one) with the number keys.
+
+You can also play with the mouse. Move it left and right to move your ship, left button fires, right button switches weapons.
+
+The goal is simple: Shoot all invaders, don't let them shoot you, don't let them reach the bottom of the screen.

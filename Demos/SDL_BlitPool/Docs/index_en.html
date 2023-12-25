@@ -1,0 +1,164 @@
+
+<html>
+
+<head>
+
+	<title> SDL_BlitPool </title>
+
+</head>
+
+
+<body bgcolor=#001030 text="white" link="white" vlink="white">
+
+<a href="index.html">[Japanese]</a><br>
+<font size = +8> SDL_BlitPool Library</font><br>
+<br>
+<img src="img01.gif"><br>
+<br>
+
+<br>
+Blit pool (static) library for the SDL.<br>
+This remove overlapped area and divide the back surface blit operation.<br>
+According to circumstances does very fast blit operation.<br>
+This is written in plain ANSI-C.<br>
+<br>
+<br>
+
+<font size = +1>
+<img src="logo.png"><br>
+<a href="BlitPool_Release02.zip">Download SDL_BlitPool Release 2</a> (194KB: 04/Apr/2005)<br>
+</font>
+(add BlitPool_Optimize, BlitPool_GetArea, BlitPool_PostByDescription)<br>
+
+<br>
+<font size = -1>
+<a href="BlitPool_Release01.zip">SDL_BlitPool Release 1</a> (117KB: 21/Mar/2005)<br>
+</font>
+
+<br>
+<br>
+Copyright (C) 2005 strangebug, Licensed under the LGPL.<br>
+
+<br>
+<br>
+<br>
+
+
+
+
+<font size=+2>example: Planet</font><br>
+<img src="img02.jpg"><br>
+Big 20 balls(planets) surface drawing.<br>
+Optimize 12 fps  ->  28-72 fps.<br>
+<br>
+<br>
+<br>
+
+
+
+<font size=+2>flow:</font><br>
+1. Create a pool object. (BlitPool_CreatePool, BlitPool_SetAllocator)<br>
+2. Post the blit/fill operations. (BlitPool_PostSurface, BlitPool_PostPool, BlitPool_PostByDescription)<br>
+3. Optimize and execute blit. (BlitPool_Optimize, BlitPool_Execute)<br>
+4. Get update rectangles and do update. (BlitPool_InitUpdateRects, BlitPool_GetUpdateRects, )<br>
+5. Delete a pool object. (BlitPool_DeletePool, (BlitPool_Release))<br>
+<br>
+<br>
+<br>
+
+
+
+<font size=+2>technique: Separate the Opaque/Transparent (use BlitPool_PostPool)</font><br>
+<img src="img03.jpg"><br>
+Divide the Opaque/Transparent rectangle.<br>
+It's post to pool and commit pool after.<br>
+see BlitPool_PostByDescription in sample [planet.c].<br>
+<blockquote>
+<pre>
+BlitPool_PostByDescription(
+	g.PlanetPool,
+	p->PlanetSurface,
+	"pos=(0,0):"
+	"T:(29,0)-(170,200):"	/*	transparent height belt	*/
+	"T:(0,29)-(200,170):"	/*	transparent width belt	*/
+	"O:(29,29)-(170,170):"	/*	opaque square	*/
+);
+
+BlitPool_Optimize(g.PlanetPool, BLIT_OPT_REMOVEOVERLAP);	/*	delete back operation 	*/
+</pre>
+</blockquote>
+<br>
+<br>
+<br>
+
+
+
+<font size=+2>technique: Use original allocator</font><br>
+It's like:
+<blockquote>
+<pre>
+static unsigned char g_buf[1024 * 256];
+static unsigned char *g_p;
+#define InitAllocator()	g_p = g_buf
+
+static void *Allocator(unsigned long nbyte)
+{
+	return (void *)((g_p += nbyte) - nbyte);
+}
+static void Releaser(void *p)
+{
+	/*	Do Nothing	*/;
+}
+</pre>
+</blockquote>
+
+and
+
+<blockquote>
+<pre>
+BlitPool_SetAllocator(pool, Allocator, Releaser);
+InitAllocator();
+</pre>
+</blockquote>
+
+<br>
+<br>
+<br>
+
+
+
+
+<font size=+2>technique: disable optimize to mini rectangle blit</font><br>
+if (optimize_cost > blit_cost) then use BLIT_EXEC_NO_OPTIMIZE flag.<br>
+example:
+<blockquote>
+<pre>
+BlitPool_PostSurface(
+	pool,
+	Bullet[angle],		/*	little surface	*/
+	NULL,
+	&BulletPosition[i],
+	BLIT_ALPHA_TRANSPARENT | BLIT_EXEC_NO_OPTIMIZE		/*	<-	*/
+);
+</pre>
+</blockquote>
+
+
+<br>
+<br>
+<br>
+
+
+
+<br>
+<br>
+<br>
+
+
+last update: 5/Apr/2005<br>
+<a href="http://danalog.oops.jp/blog/">Blog (JP)</a>
+</body>
+</html>
+
+
+

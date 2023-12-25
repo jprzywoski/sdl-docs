@@ -1,0 +1,143 @@
+phire 1.0.0
+Copyright (C) 2005, Ertugrul Soeylemez
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+
+
+  Introduction
+--============
+
+Well, there isn't much to say. I have seen many pixel-based flame effects
+around and my idea was to write a particle-based flame effect. This is what
+you are holding in your hands. It probably isn't the best solution, but it
+works and draws some elliptic shapes that look like something you would call
+fire. =)
+
+It is based on SDL and doubly-linked lists, which I have developed myself.
+For performance reasons I have also written the pseudo-random number
+generator myself. It works with additions and bit operations only, so it is
+very fast (370 million numbers/sec on my Duron 1.6 GHz machine).
+
+Since the program is released under the GNU GPL, you can, with a few
+limitations, do whatever you want with any part of the source code. Read the
+GPL for further informations. If you still have any questions regarding
+licensing, just email me and I'll help you.
+
+If you have problems or want to report a bug, see the Troubleshooting section
+below.
+
+Enjoy. =)
+
+
+
+  Installation
+--============
+
+Firstly you need to unpack the bzip2'ed tarball. Since you are reading this
+file, I assume you have already done this. I've supplied a Makefile, which
+does all the dirty work for you. Just run:
+
+ make
+
+from the root directory of this package and the program will get compiled to
+a binary. If you feel like wasting space, you can also install it:
+
+ make install
+
+If you later want to make more valuable use of your space, you can uninstall
+it afterwards:
+
+ make uninstall
+
+
+
+  Invocation
+--==========
+
+Just run the "phire" binary located in the "src" subdirectory, when the
+compilation is finished without errors:
+
+ src/phire
+
+If you have installed it, then you can also just say:
+
+ phire
+
+If you want to run this program in fullscreen mode or change the resolution,
+call the program with the -h option, which will provide you with a little
+usage help text:
+
+ src/phire -h
+
+or:
+
+ phire -h
+
+
+
+  Troubleshooting
+--===============
+
+First of all: the SDL library must be installed properly for this program to
+work. If this is not the case, then go to <http://www.libsdl.org/> and see
+the installation instructions for the SDL library.
+
+Remember that most distributions already have the SDL library as a package.
+At least this is true for Debian and Gentoo.
+
+
+1. If the "SDL/SDL.h" file cannot be found
+
+This is a portability problem, if SDL is installed properly on your site. For
+now, you need to look for the SDL.h file, which might be located in
+/usr/include. If it's there, you need to open the source code files (*.cpp
+and *.h) and change all lines that look like this:
+
+ #include <SDL/SDL.h>
+
+to this:
+
+ #include <SDL.h>
+
+Remember that Unix/Linux are case-sensitive. So if your SDL header file is
+named sdl.h instead of SDL.h, then you need to change it appropriately in the
+source code files.
+
+
+2. Other problems
+
+Most problems are already covered in the FAQ section at
+<http://www.libsdl.org/>. Please look there first, before asking me
+questions.
+
+
+3. Reporting bugs
+
+Just drop me an email. See below for contact information.
+
+
+
+  Contact
+--=======
+
+If you have a question, a problem (which is not already covered in the
+Troubleshooting section), if you want to report a bug or just want to feed
+something back, you can email me at <never@drwxr-xr-x.org>.
+
+I'm also on IRC with the nickname "mm_freak". Join <#mm> on
+<irc.phat-net.org>.
+
+I understand both English and German, but I prefer German. =)

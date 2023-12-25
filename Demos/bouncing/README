@@ -1,0 +1,17 @@
+Bouncing
+--------
+by Ricardo Cruz
+<rick2@aeiou.pt>
+
+This program was made with the goal to help someone learning SDL.
+It makes use of display, events and audio.
+
+You can grab the Tux and throw him. Not something that someone in his
+perfect mind would want to do. ;-)
+
+Bouncing and only Bouncing is public domain (it is not copyrighted), in order to give noob developers the opportunity to use it as a skeleton for their games, thus using the license they want and not need to credit myself.
+
+Type 'make' to compile it.
+
+Enjoy,
+ Ricardo

@@ -1,0 +1,74 @@
+GL_blit: an exhaustive example about blitting sprites with OpenGL
+Copyright (C) 2005 Angelo "Encelo" Theodorou
+
+Info
+----
+This is testbed code for considering the inclusion of an OpenGL blitter inside the game 
+Mars: Land of No Mercy (http://mars.sourceforge.net).
+It has support for colorkey (working the same as with SDL_Surface), for further transformations (rotate and scale) 
+and it checks for maximum texture size.
+
+The program renders a quad with a texture in ortographic view, this is often much better than blitting pixels 
+directly with glDrawPixels() because the majority of non professional cards do not have hardware support for pixels 
+manipulation functions.
+
+Using textures leads to another problem, the famous NPOT (non-power-of-two) textures, which sides measure a number of pixels that is not a precise power of two.
+The problem was solved in two different ways:
+1) with the GL_ARB_texture_rectangle extension, which avoids the problem for ever but needs hardware support and 
+could rise performance issues (which are not, of course, of any importance when we're talking of simple 2d quads ;-) )
+Please note that GL_ARB_texture_non_power_two is really not very much supported at the time of writing.
+2) drawing NPOT surfaces inside POT textures, which works everywhere, is always fast but adds some lines of code.
+
+I tried to keep the Sprite structure as smaller as possible, but you can make it contain more informations, in order to do less checks and to enhance the speed (but again I think that a couple of log() and pow() inside the blitting function don't afflict it too much).
+
+Consider the hypnotic background triangles as a special gift and as a proof that we're effectively inside an 
+OpenGL render context. :)
+
+Compiling
+---------
+To compile use the included Makefile which takes care for both the examples.
+It has to be tailored to each one's needs, you would probably have to change include dirs.
+If your compiler fails, complaining for the lack of the GL_TEXTURE_RECTANGLE_DEFINE, check the code for a comment with the 
+effective value of it.
+
+
+Notes
+-----
+The origin of the coordinates system is the upper left corner of the screen, like SDL. It makes more sense with 2d graphics.
+
+Together with the source, in addition to the Mars logo, there are two little png images rendered by me with Blender, you can use them in the program to make your tests.
+The first, "sphere.png", is 64x64 pixels and is, of course, POT, while the other, "stick.png", is a NPOT 276x54 image.
+
+Just like glxgears, each 5 seconds you will see framerate information printed to stdout.
+
+The program has been tested on a PowerPC architecture system therefore there shouldn't be any endianess related quirks.
+
+Extras
+------
+
+Here is the first version of the blitter function, as you read in the comments, you can use it as is if you don't need 
+some adavanced functionalities.
+
+|--------------
+/* The old and simpler blitter, it's ok if you don't need further sprite transformations or NPOT textures */
+void BlitSprite(struct Sprite *sprite)
+{
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
+
+    glBindTexture(GL_TEXTURE_2D, sprite->texnum);
+    glBegin(GL_QUADS);
+        glColor3f(1.0f, 1.0f, 1.0f);
+        glTexCoord2f(0.0f, 0.0f);
+            glVertex2d(sprite->x, sprite->y);
+        glTexCoord2f(1.0f, 0.0f);
+            glVertex2d(sprite->x + sprite->w, sprite->y);
+        glTexCoord2f(1.0f, 1.0f);
+            glVertex2d(sprite->x + sprite->w, sprite->y + sprite->h);
+        glTexCoord2f(0.0f, 1.0f);
+            glVertex2d(sprite->x, sprite->y + sprite->h);
+    glEnd();
+
+    glDisable(GL_BLEND);
+}
+--------------|

@@ -1,0 +1,17 @@
+Things to do list for Jetpac:
+
+
+Make level initialisation so that a function is passed a param to initialise a
+level.  Once called the new level should be ready to play.
+
+Make player go to new level once he has taken off.
+
+Get a score displayed on the screen.
+
+Get weapon upgrades, extra lives to fall from the sky.
+
+Make a configuration file.
+
+Make a TCL/TK interface to setup options like full screen, key bindings etc.
+
+Make some more levels.

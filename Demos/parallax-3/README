@@ -1,0 +1,68 @@
+
+ Parallax Scrolling III - Overdraw Elimination
+ ---------------------------------------------
+
+    This is the third of the SDL scrolling
+    examples, and demonstrates a more
+    advanced approach; recursive rendering
+    with clip rectangle based overdraw
+    elimination.
+
+
+Basically, the algorithm renders the screen from
+front to back (as opposed to traditional methods
+based on the painter's algorithm), adjusting the
+target surface clip rectangle to keep the
+"underlying" graphics from covering the areas
+already rendered.
+
+Rendering is done on a tile by tile basis. Tiles
+are treated in three different ways;
+
+  1. Fully opaque.
+	Very simple: The tile is drawn as defined
+	in the map data, and no further action is
+	taken. This case terminates recursion.
+
+  2. Fully transparent.
+	Recursion is done in order to render the
+	next layer. No further action is taken.
+
+  3. Partially transparent.
+	Recursion to the next layer is done as for
+	case 2. Then the color keyed or blended
+	tile is rendered on top of the result,
+	after the recursive call chain returns.
+
+This version has no optimizations - rendering *is*
+really done tile by tile, recursion and clipping
+included! This means that algorithmic overhead
+literally explodes in relation to rendering cost,
+when the tile size is reduced in relation to the
+screen size.
+
+However, the advantage of occluded tiles not even
+being considered for rendering is still there, as
+is the fact that there is little to no overdraw
+loss with sensible input data. Only partially
+transparent and blended tiles can result in any
+overdraw at all - and in the latter case, it
+cannot be avoided anyway, as the blending needs
+the background data to produce useful results.
+
+
+The program supports a few command line options:
+
+	-f	Fullscreen
+	-d	Double buffer
+	-<n>	Depth = <n> bits
+	-l<n>	Use <n> layers (default = 7)
+	-b	"Bounce-around" mode
+	-w	Wrap maps instead of bouncing
+	-a<n>	Alpha for non-opaque tiles = <n>
+	-v<n>	Verbosity level <n> (default = 0)
+	-p	Use planet layers (default)
+	-np	Don't use planet layers
+
+
+	//David Olofson  <david@gardena.net>

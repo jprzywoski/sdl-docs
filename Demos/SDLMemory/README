@@ -1,0 +1,77 @@
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+SDLMemory, a simple memory game written in C++ with SDL (http://www.libsdl.org)
+Aaron Ponti, 2003, 2004, http://www.gpres.org
+
+SDLMemory is meant to be an example application of the Simple Directmedia Library
+This game is released under the terms of the GPL
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------
+RELEASE INFORMATION
+------------------------------------------------------------------------------------
+Release version   : 0.2
+Release date      : April 17, 2004
+Supported OSes    : Linux, Win32
+License           : GPL (http://www.gnu.org/copyleft/gpl.html)
+Author            : Aaron Ponti
+Contact           : contact@gpres.org
+Web site          : Game Programming and Artificial Intelligence
+                    (http://www.gpres.org)
+
+Remark: version 0.2 is the first release of SDLMemory to run on Linux. 
+It has been tested on Mandrake Linux 9.2 and 10.0, and Suse Linux 9.0.
+
+
+------------------------------------------------------------------------------------
+LICENSE
+------------------------------------------------------------------------------------
+
+This software is released under GPL. 
+Please see gpl.txt and http://www.gnu.org/copyleft/gpl.html
+
+
+------------------------------------------------------------------------------------
+DEPENDENCES
+------------------------------------------------------------------------------------
+SDLMemory requires:
+	SDL [ http://www.libsdl.org/download-1.2.php ] 
+	SDL_image [ http://www.libsdl.org/projects/SDL_image/ ].
+
+		
+------------------------------------------------------------------------------------
+INSTALLATION
+------------------------------------------------------------------------------------
+
+Follow these steps ($ is the prompt of your shell):
+
+$ tar xjf SDLMemory-0.2.tar.bz2
+$ cd SDLMemory
+$ make
+
+If this last step fails, try the following:
+$ make -f makefilemdk92
+
+You can then run SDLMemory with the following call:
+
+$ ./SDLMemory
+
+
+------------------------------------------------------------------------------------
+OPTIONS
+------------------------------------------------------------------------------------
+
+SDLMemory can be run with several arguments. Type
+
+$ ./SDLMemory -h
+
+for a complete list. For instance, ./SDLMemory -f starts SDLMemory in fullscreen mode.
+
+
+------------------------------------------------------------------------------------
+BUG REPORTS AND GENERAL FEEDBACK
+------------------------------------------------------------------------------------
+Contact: contact@gpres.org
+

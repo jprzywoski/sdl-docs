@@ -1,0 +1,17 @@
+SDL_Demo: a little demo based on SDL direct pixel blitting
+Copyright (C) 2004 Angelo "Encelo" Theodorou
+
+Info
+----
+This is a little demo that uses SDL direct pixel blitting, SDL_mixer, SDL_ttf and threads.
+The program makes use of threads even if it could work without, but this way the program is simpler and shows the basic usage of them under libSDL.
+
+The chip module "Purple Shades" is by Hi-Lite/Scoopex. 
+
+Keys
+----
+Press ESC or Q at any time to quit the program.
+
+Compiling
+---------
+$make

@@ -1,0 +1,39 @@
+TODO
+
+Delete bugs ( there's a bug when you destroy a monster ... ? )
+
+Add some noises
+
+Add some others monsters
+
+Make Documentation.
+
+Make a good puttext function. ( make a good bitmap of alphabet ).
+
+Make a menu ( play , setup ...) .
+
+Make a big monster for the end.
+
+....
+
+DONE
+00/2000 
+Make a Makefile 
+Split the source in few files .cpp and .h 
+Change the data file format ( add in traject*.txt at the end of 
+x y frame ( the frame is the frame of the sprite at one moment , 
+if it 's -1 gthe the frame depends of the time not of the position ).
+04/2001
+Add tiled background 
+26/04/2001
+Add planet on background
+modify the format of the scenario file,
+ * add commentary
+ * add the number of enemi by waves
+ * add delta x for each enemi of the wave
+ * add delta y for each enemi of the wave
+Modify SDLSpriteList and SDLSprite to remember the order and number of sprite in the list
+
+sam mai  5 03:55:01 CEST 2001
+I hope I have erased a bug when you destroy enemi by the boolean variable enemydeletebyrocket
+

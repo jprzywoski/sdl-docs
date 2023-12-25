@@ -1,0 +1,11 @@
+
+This directory contains a number of effects taken with thanks from the
+Optimum demo group: http://optimum.citeweb.net/
+
+Many of them only run on x86 Linux, due to asm or getopt()
+
+(c) ctx/Optimum
+    optimum@citeweb.net
+
+They are all released under the GNU General Public License
+

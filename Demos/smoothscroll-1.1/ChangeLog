@@ -1,0 +1,5 @@
+1.1:
+	* Using __inline__ instead of inline.
+	* Made the editor work in OpenGL mode as well.
+	* Added "time filter" feature, and the -ntf
+	  ("no time filter") switch.

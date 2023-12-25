@@ -1,0 +1,37 @@
+SDL_BlitPool - Blit/Fill operation pool with optimizer(remove overlapped area), written in ANSI-C
+
+Blit pool (static) library for the SDL.
+This remove overlapped area and divide the back surface blit operation.
+According to circumstances does very fast blit operation.
+This is written in plain ANSI-C.
+
+Copyright (C) 2005 strangebug, Licensed under the LGPL.
+
+SDL_Blitpool compiled with:
+gcc -mcrt=newlib -Wall -O2 -I/sdk/local/newlib/include/SDL -I/sdk/local/common/include/SDL -c SDL_BlitPool.c
+
+Demos linked with:
+gcc -mcrt=newlib -Wall -O2 -I/sdk/local/newlib/include/SDL -I/sdk/local/common/include/SDL -o switchtest SDL_BlitPool.o planet.c -lsdl -lauto
+gcc -mcrt=newlib -Wall -O2 -I/sdk/local/newlib/include/SDL -I/sdk/local/common/include/SDL -o switchtest SDL_BlitPool.o look_divide.c -lsdl -lauto
+
+   .___________________________________________________________.
+   |                                                           |
+   |       A M I G A   O S   4 . 0   C O M P I L E   B Y       |
+  ._______                                        .______.     |
+  |  ____/________________________________________|      |__   .
+._|____._         |      ._       |      ._       |       _/______.
+|      |/         |      |/       |      |/       |      |/       |
+|                 |      _________|               |               |
+|_________________|______|spt/up  |_______________|_______________| 
+   .                                                           .
+   |                                                           | 
+   |              A B O U T   T H I S   P O R T                |
+   |                                                           | 
+   |                                                           | 
+   |   I am in a shitty economical situation, so if you feel   | 
+   |  that what I do is  worth anything, use paypal to donate  |  
+   |         to my email addy, spotATtriadDOTse, thanx!        | 
+   |                                                           | 
+   |                    Spot / Up Rough 2006                   | 
+   |___________________________________________________________|
+

@@ -1,0 +1,76 @@
+maze_rays v1.1, written by Sean McKean
+
+Description:
+    Run through a randomly-generated maze with mouse and keyboard,
+    making use of a top-down map and a first-person perspective.
+    Features a simple ray-caster engine.
+
+Requirements:
+    SDL             http://www.libsdl.org/download-1.2.php
+    SDL_ttf         http://www.libsdl.org/projects/SDL_ttf
+
+Build instructions:
+    Type  make  at a suitable terminal in the main directory to build
+    the executable.
+
+To run:
+    Under Linux, type  ./maze-rays  at a terminal to run.
+    Under Windows, run maze-rays.exe .
+
+Controls:
+    On the command-line, include argument "-gw WIDTH" to change the
+    video width, and "-gh HEIGHT" to change the height. The video width
+    and height are both set independently to a minimum of 320 and 240,
+    respectively. Option "-bpp BPP" sets the bits-per-pixel of the
+    opened display. If not set, then the default desktop bit-depth will
+    be obtained. Include argument "-mw WIDTH" to change the maze width
+    to integer WIDTH. The same holds for maze height: "-mh HEIGHT". Take
+    care that both the maze width and height are >= 3 and that they are
+    odd numbers, otherwise the program will throw an error. Option "-md
+    MAX_DISTANCE" sets the maximum distance from the start to the end
+    gate to MAX_DISTANCE, which must be a value of 4 or higher. Option
+    "-f", or "--fullscreen", sets the display to (guess...) fullscreen.
+    Option "-vm" or "--view-whole-map" causes the program to display the
+    whole maze in the map at program start. By default the unseen rooms
+    in the maze will be hidden. Option "-si" or "--skip-intro" bypasses
+    the introduction screen. Finally, "-h" or "--help" displays a short
+    statement on command-line usage.
+
+    In the game, the mouse position affects the player direction in the
+    maze. To move forward, press the left mouse button. To move
+    backward, press both the left and right mouse buttons
+    simultaneously. The arrow keys also work as expected.
+
+    To switch to and from fullscreen-map mode, either tap the right
+    mouse button or press tab. From the fullscreen map, the left mouse
+    button moves the center of the map, while movement can be achieved
+    with the arrow keys.
+    
+    Type shift-F12 to take a screenshot (for whatever reason you need
+    to; this command was added mainly to provide a couple of sample
+    images on the homepage).
+
+Updates:
+    v1.1:  Fixed oblong-sized maze to show correctly.
+    v1.0:  Numerous fixes, added intro and outro screens and fades, and
+           added an option to set maximum exit distance from start.
+
+    v0.6:  Some code cleanup, and fixed jaggies on start and end exit
+           texts.
+    v0.5:  Added some command-line options and a simple intro screen.
+           Also added option to show/hide full maze on map.
+    v0.4:  Some minor tweaks; changed ray-casting method to a faster
+           routine, according to a tutorial ->
+               http://www.permadi.com/tutorial/raycast
+           Thanks again to Charles Huber.
+    v0.3:  Made different video bit-depths available; randomized
+           start/end locations.
+    v0.2:  Fixed visual fishbowl distortion; thanks to Charles Huber.
+    v0.1:  Initial pre-release.
+
+TODO:
+    Add start-screen menu to adjust options.
+
+
+Questions? Ideas? Comments?
+Email: <smckean@yvn.com>

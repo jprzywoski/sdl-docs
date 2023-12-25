@@ -1,0 +1,40 @@
+this small demo is about liquid surface modelling.
+
+
+mouse:
+
+use mouse to move on the surface. while
+you hold down first mouse button and move
+trace is left behind.
+
+
+keys:
+
+1 2 - smooth
+q w - gravity
+a s - friction
+z x - elastics
+f - fullscreen
+space - clear
+esc - quit
+
+
+meanings of properties:
+
+smooth - how much to smooth the surface?
+	smaller value gives better smoohing.
+	a stupid param, probly you wont notice
+	any change.
+
+gravity - smaller value increases process sped.
+
+friction - how long the oscillation will last?
+	smaller value means longer.
+
+elastics - wave length. smaller values - longer wave.
+
+
+when you go with some parameter out of optimal range
+system starts to amplify waves. sometimes this gives
+very nice-looking patterns. when this happend bring
+the value back to optimal range (and press space).

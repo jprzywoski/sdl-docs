@@ -1,0 +1,44 @@
+Sun Feb  2 20:13:46 2003
+
+Version 1.2.1
+ + Better Highscore loading & saving
+
+Version 1.2.0
+ + oilwar.scores moved from /var/lib/games to /var/games
+
+Version 1.1.3
+ + New game / Quit menu
+ + Cooler game ending
+ + Should now be gcc 3.2 compatible
+
+Version 1.1.2
+ + Fixed configure.in (SDL_mixer is only checked if sound is enabled)
+ + Command line options
+ + Grenades
+ + Ammo boxes
+Version 1.1.1
+ + Better graphics
+ + Animated soldiers
+
+Version 1.0.4
+ + Decals
+ + Sounds
+ + All bitmaps are in one image file
+ + Highscores
+
+Version 1.0.3
+ + Crosshair
+ + Better sprites
+
+Version 1.0.2
+ + Particle systems
+ + Blood
+ + Explosions
+ + Sand
+
+Version 1.0.1
+ + You can now install the game with "make install"
+ + Minor fixes
+
+Version 1.0.0
+ + First version

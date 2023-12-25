@@ -1,0 +1,41 @@
+Changed background (added another nebulae to make it slightly more colourful).
+
+Changed the 'bag of gold' scoring icon so it looks nicer.
+
+Added 'stage x' labels.  Game will now consist of levels containing 5 stages each.  After
+the player has completed the 5 stages he/she will get a code for getting to the next level
+without having to trudge through the previous levels all over again.
+
+Added 'load level' button to the main menu to allow players to zoom to levels they have
+previously achieved (and obtained the code for).
+
+Added the ability for aliens to fire spores of all kinds (including homing spores).
+
+The big alien from level 3 (I think it was) is now the end of level baddie for level 1
+(stage 5).  I've also got rid of that annoying asteroid on that level.
+
+Nick Glass tweaked the code so that it would be compatible with MS Visual C++
+and he also got a Windows version working.
+
+Joystick support added by Nick Glass.
+
+Improved the level 2 baby alien sprite.
+
+Improved the asteroid graphics.
+
+Changed fuel drum to have leaky green fuel coming out of it.
+
+Moved all graphics into a 'pixmaps' directory.  This just keeps the main
+directory a little neater.
+
+Started work on level 2.  Stage 1 implemented.
+
+New level secret code display implemented.
+
+New background for level 2 (its not that good yet, but I'll get round to making
+it look nicer.)
+
+Stopped player dying when falling.
+
+Added some 'powerups'.  There is a thing that freezes all the aliens and theres
+a more powerful gun that kills instantly. All work under a limited duration.

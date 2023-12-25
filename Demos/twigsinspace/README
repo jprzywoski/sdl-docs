@@ -1,0 +1,65 @@
+Instructions for playing Twig's In Space
+
+The game is designed to be played as an old-style video game as in the '80s.
+As such, you will need to insert quarters to play, and press the start button 
+in order to begin the game.  As with other games of the era, instructions 
+regarding the joystick do not appear on the screen, but a simple teaser loop 
+does.  
+
+For those of you using a standard keyboard, the following are the default 
+keymaps
+
+5 - Insert coin (MAME standard)
+1 - Player 1 start (MAME standard)
+Left Arrow - Rotate left (ship or high score letters)
+Right Arrow - Rotate right (ship or high score letters)
+Up Arrow - Fire thrusters 
+Space Bar - Fire cannon (or lock in a high score letter)
+P - Pause/ Unpause game (MAME standard)
+F11 - Fullscreen/Windowed toggle (industry standard)
+ESC - Exit (MAME standard)
+
+All the functions can be mapped to different keys by modifying the file 
+tis.conf.  The numbers correspond to SDL_keysysms (see libsdl.org).  Also in 
+the file, you can specify whether to start in fullscreen or windowed mode.
+
+The hi-scores are stored in the file hiscore.dat.  The hiscores are re-saved 
+to the file when the game exits normally.  If the file does not exist at 
+startup, the game will initialize itself with a set of highscore data.
+
+
+Instructions for Installation
+
+Not much.
+
+A Makefile is provided for systems that can use make.  Basically all you need
+is:
+
+	SDL
+	SDL_image
+	SDL_mixer
+
+If the librarys for these files are in the usual places, then you should be 
+able to just type 'make'.  If you want to install the executable someplace, 
+you will need to copy it there yourself.  Note that the audio files, config
+file and hiscore files are coded relative to where the program is run.  If you
+are going to install it somewhere else, you will need to change those 
+locations.
+
+
+
+Note to users of Cygwin/MingW:
+
+	Due to problems producing the SDL .dll files in recent versions of 
+Cygwin/MingW, it is strongly recommended that you get the libsdl versions for
+all three librarys (SDL.dll, SDL_image, SDL_mixer) from libsdl.org 
+_regardless_ of whether they compile on your computer (some do not even 
+compile).  The versions produced by Cygwin/MingW can be significantly slower
+and give extremely poor performance.  For instance, the sound will lag behind
+the action by about 1/4 second unless you are using SDL_mixer.dll _AND_
+SDL.dll from libsdl.org.
+
+
+Questions / Comments / Etc:
+
+elschemm @ furball.schemm.lssu.edu

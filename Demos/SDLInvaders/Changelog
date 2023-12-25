@@ -1,0 +1,206 @@
+0.7.6	2003/01/05
+	Bugfix for Segmentation fault (by: Leslie Forrest)
+	Aliens now use all space, even when columns are destroyed
+	2003/01/13
+	Now aliens get a speedup from time to time
+
+0.7.5	2003/01/03
+	Fixed a bug where you could get outside of the screen using the mouse
+	Alien movement reworked, they now move to the border of the screen
+	Shots now move faster than aliens
+	Now wait a bit before switching to wave-end screen
+	The alien on top is now animated!
+	small bugfixes
+	BUG: It segfaults after quitting, but I don't know why. Any ideas?
+
+0.7.4	2002/11/17
+	Eye-candy! Thanks to Alessandro for the new sprites!
+	2002/12/30
+	graphical representation of health (patch by: Yu Watanabe)
+	graphical representation of shots (patch by: Yu Watanabe)
+	graphical representation of extraweapons (patch by: Yu Watanabe)
+	extrahard now default mode, use -e for easy
+	changes to health bar and to display of extra shots
+
+0.7.3	2002/11/06
+	included framerate limit (patch by: Niklas Jonsson)
+	added --extrahard option, you now have to hit them wavenumber times...
+
+0.7.2	2002/10/25
+	added new background graphic for the help screen
+	you can use the help from in game now
+	added a sound for alien shots
+	do "make nosound" for compiling without sound
+
+0.7.1   2002/10/05
+        added --nosound option (it's faster, still need SDL_mixer to compile)
+	2002/10/24
+	added a little bit of online-help
+
+0.7.0	2002/07/06
+	now actually use shot.wav (forgot this in 0.6.9)
+	2002/08/27
+	after long holiday restart work at SDLInvaders...
+	now uses new SFont version 1.6
+	added some more comments to the code
+
+0.6.9	2002/07/06
+	added 3 WAV files from Geekswithguns (I hope they are really free)
+	now plays sound effects (most of this from an old patch by Dave Watson)
+	some extensions of the README file
+
+0.6.4	2002/07/04
+	added MOD-file Penguin Night (from Penguin Command)
+	added music support (most of this from an old patch by Dave Watson)
+	now depends also on SDL_mixer (sorry, will be optional later)
+	We need _free_ (as in GPL) MOD-files and Sound Effects!!!
+
+0.6.3	2002/07/01
+	added graphic for a second type of invader
+	added second type of invader (you have to shoot him twice)
+	the new invader appears with increased chance in later levels
+
+0.6.2	2002/06/26
+	new graphics for bomb, rocket, seekrocket (by Roman Hoog Antink)
+	smooth level end (patch by: Roman Hoog Antink)
+	fixed bomb explosions (patch by: Roman Hoog Antink)
+	small fixes
+
+0.6.1	2002/06/19
+	applied mouse motion patch (by Roman Hoog Antink)
+
+0.6.0	2002/06/13
+	bugfix: Special weapons now work (patch by: Roman Hoog Antink)
+	2002/06/17
+	bugfix: Points where not shown correctly when higher than 9999
+	code cleanup
+	extended documentation
+	added some comments
+
+0.5.9	2002/06/11
+	you can now enter yourself into the highscore list
+	fixed some Bugs when playing more than one round
+	added three temporary graphics (by Roman Hoog Antink)
+	you can use number keys, to switch weapons (by Roman Hoog Antink)
+	you keep weapons in the next wave (patch by: Roman Hoog Antink)
+	new special weapons (bomb, rocket, seekrocket) started by b,r,s keys
+	      (patch by: Roman Hoog Antink)
+
+0.5.5	2002/06/09
+	fixed stupid highscore bug (patch by: Roman Hoog Antink)
+	fixed layout of highscore display
+	randomized win or lose messages (patch by: Roman Hoog Antink)
+	randomized things which can happen when special alien is hit:
+	   - repair ship
+	   - increae maximum number of shots
+	   - alternate weapon
+	   (patch by: Roman Hoog Antink)
+	small improvements to Makefile (patch by: Roman Hoog Antink)
+
+0.5.4	2002/06/06
+	added small menue to start screen
+	now, after you lost, you get back to the start screen
+	added AUTHORS file (by Dave Watson)
+	added NEWS file (by Dave Watson)
+	now shows a Highscore screen (not really working)
+	code cleanup in graphics.c
+	added sample highscores file
+	removed two old pictures still lying around
+	highscore file is now read in (but that doesn't work for some reason)
+
+0.5.3	2002/06/02
+	extended ROADMAP slightly
+	2002/06/03
+	much better keyboard handling (patch by: Roman Hoog Antink)
+	2002/06/04
+	you now can shoot the alien shots (patch by: Roman Hoog Antink)
+	some small changes
+
+0.5.2	2002/05/30
+	some well needed code cleanup
+	generalisation of the aliens
+	there should be no differences in gameplay (not counting speedups)
+	WM Caption is now set
+
+0.5.1	2002/05/29
+	now a special aliens moves through the top of the screen
+	shot them for extra points
+	shot them to get some life energy back
+	extended ROADMAP slightly
+	use a darker font on lighter background
+
+0.5.0	2002/05/28
+	decreased size of victory picture
+	started some documentation
+	some informative texts displayed
+	some small changes
+	some more uses of SDL_DisplayFormat -> more speedup
+
+0.4.9	2002/05/27
+	points are shown on endscreen
+	now you can play more than one wave
+	explosion graphic added (by Sören Wurch)
+
+0.4.0	2002/05/27
+	invaders only fire if fighter is near
+	invaders fire less often (again)
+	now actually use SFont (after Sören found a *stupid* bug)
+	display health and points
+
+0.3.9	2002/05/27
+	nInvaders is now called SDLInvaders as the former name
+	was already used by ncurses-Invaders
+	invaders fire less often
+	after some hits (currently 10) the fighter is destroyed
+
+0.3.2	2002/05/24
+	began using SDL_DisplayFormat on bitmaps -> great speedup
+	picture for alien shots included
+	the alien fire back!
+	alien shots damage blockades
+	decreased size of start picture
+
+0.3.1	2002/05/23
+	reordered Changelog
+	you now can start in windowed mode (-w switch)
+	now use the SFont library (included) (not using it yet)
+	you now can (un)pause the game with the "p" key
+
+0.3.0	2002/05/16
+	new start picture
+	finally got rid of the mouse cursor
+	Changed Roadmap
+	Checks for command-line switches
+	2002/05/17
+	new victory picture
+
+0.2.9	2002/05/10
+	cleaned up detection of game end
+	now shows picture when you lose
+	started splitting of code into multiple files
+	new picture for the shots
+	2002/05/11
+	now shows start and end pictures (not the right ones)
+
+0.2.1	2002/05/10
+	new background picture
+	now 800x600 resolution
+	new blockade picture
+	new invader picture
+	cleaned up moving of invaders
+
+0.2.0	2002/05/05
+	blockades are now "objects"
+	blockades have hitpoints
+	each hit cost a hitpoint
+	when blockade hitpoints are 0, it disappears
+	shots can't fly through blockades anymore
+
+0.1.1	2002/05/01
+	moved images to data subdir
+	added Changelog file
+	code cleanup
+	commented code
+
+0.1.0	2002/04/25
+	Initial release
